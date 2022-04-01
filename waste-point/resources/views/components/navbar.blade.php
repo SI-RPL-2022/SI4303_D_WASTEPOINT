@@ -1,5 +1,7 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-    <div class="container align-items-center">
+    <div class="container">
         <a class="navbar-brand" href="/">
             <img src="{{ asset('images/nav-logo.svg') }}" width="105">
         </a>
@@ -36,11 +38,39 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="/register" class="btn btn-register mt-lg-0 mt-3 d-lg-inline d-block rounded">Register</a>
-                    <a href="/login" class="btn btn-login mt-lg-0 mt-2 ms-lg-1 ms-0 d-lg-inline d-block rounded">Login</a>
+                @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ auth()->user()->name}}
+                    </a>
+                    
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-layout-text-sidebar-reverse me-2"></i>Dashboard</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Edit Profil</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form action ="/logout" method="post">
+                                @csrf
+                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
+                            </form>
+                            
+                        </li>
+                            
+                        
+                        
+                        
+                    </ul>
                 </li>
-            </ul>
+                
+                @else
+                
+                <li class="nav-item">
+                    <a href="{{ url('/register') }}" class="btn btn-register mt-lg-0 mt-3 d-lg-inline d-block rounded">Register</a>
+                    <a href="{{ url('/login') }}" class="btn btn-login mt-lg-0 mt-2 ms-lg-1 ms-0 d-lg-inline d-block rounded">Login</a>
+                </li>
+                </ul>
+                @endauth
+              
         </div>
     </div>
 </nav>

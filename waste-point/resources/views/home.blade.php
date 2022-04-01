@@ -3,6 +3,18 @@
 @section('title', 'Beranda')
     
 @section('content')
+           @if(session()->has('successr'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('successr') }}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>  
+            @endif
+            @if(session()->has('successl'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{ session('successl') }}</strong> 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>  
+            @endif
     <section id="main-view" class="py-5 mb-4">
         <div class="row justify-content-between">
             <div class="col-lg-6 col-12 mt-lg-3 mt-0">
