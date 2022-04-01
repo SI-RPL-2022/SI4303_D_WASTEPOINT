@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.navbar {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    transition: all .2s;
+    border-bottom: 1px solid #dedede;
+}
+
+.btn-green
+.btn-login,
+.btn-register {
+    transition: ease-in-out .3s;
+}
+
+.btn-login,
+.btn-green,
+.bg-green {
+    background-color: #32854D;
+    color: white;
+}
+
+.btn-green-secondary {
+    background-color: #79BA2A;
+    color: white;
+}
+
+.btn-register {
+    border: 1px solid #32854D;
+    color: #32854D;
+}
+
+.btn-login, .btn-register {
+    padding: 8px 24px;
+}
+
+.btn-login:hover,
+.btn-green:hover {
+    background-color: #216838;
+    color: white;
+}
+
+.btn-green-secondary:hover {
+    background-color: #79BA2A;
+    color: white;
+}
+
+.btn-register:hover {
+    background-color: #32854D;
+    color: white;
+}
+
+.text-green {
+    color: #32854D;
+}
+
+.text-green-secondary {
+    color: #79BA2A;
+}
+
+.btn-green-secondary:hover {
+    background-color: #6eaa25;
+    color: white;
+}
+
+.rounded {
+    border-radius: 10px !important;
+}
+
+#service-view hr,
+#blog-view hr {
+    width: 14%;
+    height: 4px;
+    border-radius: 12px;
+    border: 0;
+    background: #32854D;
+    opacity: 1;
+}
+
+footer hr {
+    height: 2px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#service-view .card,
+#waste-type img {
+    transition: .2s;
+}
+
+#service-view .card:hover,
+#waste-type img:hover {
+    cursor: pointer;
+    transform: translateY(-2.5%);
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 992px) {
+    #main-view {
+        text-align: center;
+    }
+
+    #main-view a {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #service-view hr,
+    #blog-view hr {
+        width: 24%;
+    }
+
+    #blog-view .card {
+        width: 100%;
+    }
+}
