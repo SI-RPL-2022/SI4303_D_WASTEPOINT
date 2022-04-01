@@ -98,6 +98,23 @@ footer hr {
     box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.1);
 }
 
+.bg-auth {
+    background: rgba(50, 133, 77, 0.2);
+}
+
+.auth {
+    width: 600px;
+    border: 1px solid #dedede;
+}
+
+.auth a.text-green:hover {
+    color: #32854D;
+}
+
+.avatar {
+    width: 36px;
+}
+
 @media screen and (max-width: 992px) {
     #main-view {
         text-align: center;
@@ -115,6 +132,10 @@ footer hr {
     }
 
     #blog-view .card {
+        width: 100%;
+    }
+
+    .auth {
         width: 100%;
     }
 }

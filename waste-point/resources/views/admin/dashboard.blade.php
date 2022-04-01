@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1>Welcome Admin</h1>
-    <form action ="/logout" method="post">
+    <form action ="{{ Route('logout') }}" method="POST">
         @csrf
         <button type="submit" class=""><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
     </form>

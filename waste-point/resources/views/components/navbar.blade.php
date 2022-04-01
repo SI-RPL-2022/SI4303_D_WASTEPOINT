@@ -38,39 +38,54 @@
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
-                @auth
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        {{ auth()->user()->name}}
-                    </a>
-                    
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-layout-text-sidebar-reverse me-2"></i>Dashboard</a></li>
-                        <li><a class="dropdown-item" href="#"><i class="bi bi-gear me-2"></i>Edit Profil</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li>
-                            <form action ="/logout" method="post">
-                                @csrf
-                                <button type="submit" class="dropdown-item"><i class="bi bi-box-arrow-right me-2"></i>Logout</button>
-                            </form>
-                            
-                        </li>
-                            
-                        
-                        
-                        
-                    </ul>
-                </li>
-                
-                @else
-                
                 <li class="nav-item">
-                    <a href="{{ url('/register') }}" class="btn btn-register mt-lg-0 mt-3 d-lg-inline d-block rounded">Register</a>
-                    <a href="{{ url('/login') }}" class="btn btn-login mt-lg-0 mt-2 ms-lg-1 ms-0 d-lg-inline d-block rounded">Login</a>
+                    @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active btn-hover rounded dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="me-lg-2 me-0">{{ Auth::user()->name }}</span>
+                            @if (!Auth::user()->is_admin)
+                                @if (Auth::user()->avatar == null)
+                                <span class="rounded-circle bg-white">
+                                    <img src="{{ asset('images/avatar-default.png') }}" alt="avatar" class="avatar rounded-circle border">
+                                </span>
+                                @else
+                                    {{-- kalau udah ada avatar --}}
+                                @endif
+                            @endif
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="">
+                                        <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
+                                @if (!Auth::user()->is_admin)
+                                    <li>
+                                        <a class="dropdown-item" href="">
+                                            <i class="bi bi-gear me-2"></i>
+                                            Edit Profil
+                                        </a>
+                                    </li>
+                                @endif
+                                <li><hr class="dropdown-divider"></li>
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <li>
+                                        <button class="dropdown-item text-danger" type="submit">
+                                            <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
+                                            Logout
+                                        </button>
+                                    </li>
+                                </form>
+                            </ul>
+                        </li>
+                    @else
+                        <a href="{{ route('register') }}" class="btn btn-register mt-lg-0 mt-3 d-lg-inline d-block rounded">Register</a>
+                        <a href="{{ route('login') }}" class="btn btn-login mt-lg-0 mt-2 ms-lg-1 ms-0 d-lg-inline d-block rounded">Login</a>
+                    @endauth
                 </li>
-                </ul>
-                @endauth
-              
+            </ul>
         </div>
     </div>
 </nav>

@@ -1,114 +1,72 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.auth')
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style>
-      .form-container{
-        background: #fff;
-        padding: 30px;
-        
-        width: 425px;
-        height: 700px;
-        margin: 15vh;
-        margin-left:73vh;
-        position: relative;}
-        textarea {
-         resize: none;}
-        
-    </style>
+@section('title', 'Register')
     
-  </head>
-  <body>
-  <section class="container-fluid">
-    <section class="justify-content-center">
-      <section class="col-12 col-sm-6 col-md-3">
-      <form action="/register" method="POST" class="form-container border rounded shadow-sm">
-        @csrf
-           <h4>Register</h4>
-           <p><small>Silahkan mendaftar akun Waste Point untuk memulai <span style="color:#32854D">aktivitas</span> Anda.</small></p>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
-          <input name="email" type="email" class="form-control mt-1 @error('email')is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Email" autofocus required value="{{ old('email') }}"> 
-          <small id="emailHelp" class="form-text text-muted"></small>
-          @error('email')
-          <div class="invalid-feedback">
-            {{ $message }}
-          </div>
-          
-          @enderror
+@section('content')
+    <div class="card auth mx-auto p-3 rounded shadow-sm">
+        <div class="card-body">
+            <h2 class="fw-bold">Register</h2>
+            <p class="mb-4">Silahkan mendaftar akun Waste Point untuk memulai aktivitas Anda.</p>
+            <form action="{{ route('register') }}" method="POST">
+                @csrf
+                <div class="mb-3">
+                    <label for="email" class="form-label fw-bolder">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" autofocus value="{{ old('email') }}">
+                    @error('email')
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="name" class="form-label fw-bolder">Nama Lengkap</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama lengkap" value="{{ old('name') }}">
+                    @error('name')
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="nomorhp" class="form-label fw-bolder">Nomor HP</label>
+                    <input type="text" class="form-control" id="nomorhp" name="nomorhp" placeholder="Masukkan nomor hp" value="{{ old('nomorhp') }}">
+                    @error('nomorhp')
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label fw-bolder">Alamat</label>
+                    <textarea class="form-control" id="address" name="address" placeholder="Contoh: Jl. Rusa raya No. 71, Kel. Sertajaya, Kec. Cikarang Timur, Kab. Bekasi, Jawa Barat" rows="3" value="{{ old('address') }}"></textarea>
+                    @error('address')
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-2">
+                    <label for="password" class="form-label fw-bolder">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" value="{{ old('password') }}">
+                    @error('password')
+                        <div class="text-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+                <div class="mb-5">
+                    <div class="form-check float-end mb-4">
+                        <input class="form-check-input" type="checkbox" value="" id="show_pass" onclick="showPassword()">
+                        <label class="form-check-label" for="show_pass">Lihat password</label>
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <button type="submit" class="btn btn-green w-100 py-2 fw-bold rounded">Register</button>
+                </div>
+                <p class="text-center mb-0">Sudah punya akun?
+                    <a href="{{ route('login') }}" class="text-decoration-none hover-none text-green fw-bold">Masuk</a>
+                </p>
+            </form>
         </div>
-
-        <div class="form-group mt-3">
-          <label for="exampleInputEmail1">Nama Lengkap</label>
-          <input name ="name" type="text" class="form-control mt-1 @error('name')is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nama Lengkap" required value="{{ old('name') }}">
-          <small id="emailHelp" class="form-text text-muted"></small>
-          @error('name')
-          <div class="invalid-feedback">
-            {{ $message }}
-          </div>
-          
-          @enderror
-        </div>
-
-        <div class="form-group mt-3">
-          <label for="exampleInputEmail1">Nomor Hp</label>
-          <input name ="nomorhp" type="number" class="form-control mt-1 @error('nomorhp')is-invalid @enderror" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Nomor Hp" required value="{{ old('nomorhp') }}">
-          @error('nomorhp')
-          <div class="invalid-feedback">
-            {{ $message }}
-          </div>
-          
-          @enderror
-        </div>
-          
-        
-        <div class="form-group mt-3">
-            <label for="exampleFormControlTextarea2">Alamat</label>
-            <textarea name="address" class="form-control mt-2 @error('alamat')is-invalid @enderror" id="address" placeholder="Contoh: Jl. Rusa raya No. 71, Kel. Sertajaya, Kec. Cikarang Timur, Kab. Bekasi, Jawa Barat" rows="3" required value="{{ old('address') }}"></textarea>
-            <small id="emailHelp" class="form-text text-muted"></small>
-            @error('address')
-          <div class="invalid-feedback">
-            {{ $message }}
-          
-          @enderror
-        </div>
-        
-        <div class="form-group mt-3">
-          <label for="exampleInputPassword1">Password</label>
-          <input type="password" class="form-control mt-1 @error('password')is-invalid @enderror" name="password" id="password" placeholder="Masukkan Password" required>
-          @error('password')
-          <div class="invalid-feedback">
-            {{ $message }}
-          </div>
-          
-          @enderror
-        </div>
-       
-        <button type="submit" class="btn btn-success w-100  mt-3 my-3 btn"style="background-color:#32854D" >Register</button>
-        <p class ="text-center"><small><small>Sudah Punya Akun?<a href="/login"style="color:#32854D">Masuk</a></small></small></p>
-      </form>
-      <section>
-    </section>
-  </section>
-            
-            
-                    
-
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-     
-          
-          
-      
-
-    </script>    
-    
-  </body>
-</html>
+    </div>
+@endsection
