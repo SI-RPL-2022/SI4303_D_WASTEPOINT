@@ -1,7 +1,9 @@
 <?php
-use App\Http\Controllers\loginController;
-use App\Http\Controllers\registerController;
-use App\Http\Controllers\adminController;
+
+use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,17 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// free access
 Route::get('/', [HomeController::class, 'index']);
 
-//login
-route::get('/login', [loginController::class, 'index'])->middleware('guest');
-route::post('/login', [loginController::class, 'authenticate']);
-//register
-route::get('/register', [registerController::class, 'index'])->middleware('guest');  
-route::post('/register', [registerController::class, 'store']);
-//logout
-route::post('/logout', [loginController::class, 'logout']);
- //admin
-route::get('/admin', [adminController::class, 'index'])->middleware('auth');
-//logout
-route::post('/logout', [loginController::class, 'logout']);
+// only guest for access
+Route::middleware('guest')->group(function() {
+    //register & login
+    Route::get('register', [RegisterController::class, 'index'])->name('register');
+    Route::post('register', [RegisterController::class, 'store'])->name('register');
+    Route::get('login', [LoginController::class, 'index'])->name('login');
+    Route::post('login', [LoginController::class, 'authenticate'])->name('login');
+});
+
+// only users logged in
+Route::middleware('auth')->group(function() {
+    // admin
+    Route::get('admin', [AdminDashboardController::class, 'index'])->middleware('auth');
+    
+    // logout
+    Route::post('logout', LogoutController::class)->name('logout');
+});
