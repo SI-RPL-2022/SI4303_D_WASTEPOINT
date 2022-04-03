@@ -69,15 +69,15 @@
                                     </li>
                                 @endif
                                 <li><hr class="dropdown-divider"></li>
-                                <form action="{{ route('logout') }}" method="POST">
-                                    @csrf
+                               
                                     <li>
-                                        <button class="dropdown-item text-danger" type="submit">
+                                        <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
                                             Logout
                                         </button>
+                                        
                                     </li>
-                                </form>
+                                
                             </ul>
                         </li>
                     @else
@@ -89,3 +89,23 @@
         </div>
     </div>
 </nav>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            Anda yakin ingin log out ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                  <button type="submit" class="btn btn-danger">Log Out</button>
+                </form>
+        </div>
+      </div>
+    </div>
+  </div>

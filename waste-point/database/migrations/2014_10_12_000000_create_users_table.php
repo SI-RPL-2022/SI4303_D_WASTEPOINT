@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('waste_poins')->default(0);
+            $table->integer('waste_poins')->default(0);
             $table->string('avatar')->nullable();
             $table->string('nomorhp');
             $table->string('address');
