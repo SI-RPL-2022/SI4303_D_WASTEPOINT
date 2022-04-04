@@ -71,7 +71,7 @@
                                 <li><hr class="dropdown-divider"></li>
                                
                                     <li>
-                                        <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                             <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
                                             Logout
                                         </button>
@@ -89,23 +89,24 @@
         </div>
     </div>
 </nav>
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Logout</h5>
+                <h5 class="modal-title fw-bold" id="logoutModalLabel">Konfirmasi Logout</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            Anda yakin ingin log out ?
+            Anda yakin ingin logout dari Waste Point?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                  <button type="submit" class="btn btn-danger">Log Out</button>
+                  <button type="submit" class="btn btn-danger">Logout</button>
                 </form>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
+</div>
