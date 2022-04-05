@@ -67,13 +67,14 @@
                                             Edit Profil
                                         </a>
                                     </li>
+                                @else
+                                    <li>
+                                        <a class="dropdown-item" href="/admin">
+                                            <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                            Dashboard
+                                        </a>
+                                    </li>
                                 @endif
-                                <li>
-                                    <a class="dropdown-item" href="/admin">
-                                        <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
