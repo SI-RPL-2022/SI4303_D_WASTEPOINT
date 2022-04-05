@@ -54,13 +54,13 @@
                             @endif
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="">
-                                        <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
-                                        Dashboard
-                                    </a>
-                                </li>
                                 @if (!Auth::user()->is_admin)
+                                    <li>
+                                        <a class="dropdown-item" href="">
+                                            <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                            Dashboard
+                                        </a>
+                                    </li>
                                     <li>
                                         <a class="dropdown-item" href="">
                                             <i class="bi bi-gear me-2"></i>
@@ -68,16 +68,19 @@
                                         </a>
                                     </li>
                                 @endif
+                                <li>
+                                    <a class="dropdown-item" href="/admin">
+                                        <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                        Dashboard
+                                    </a>
+                                </li>
                                 <li><hr class="dropdown-divider"></li>
-                               
-                                    <li>
-                                        <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
-                                            <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
-                                            Logout
-                                        </button>
-                                        
-                                    </li>
-                                
+                                <li>
+                                    <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                        <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
+                                        Logout
+                                    </button>
+                                </li>
                             </ul>
                         </li>
                     @else
