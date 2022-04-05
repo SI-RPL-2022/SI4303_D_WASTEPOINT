@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController;
+use App\Http\Controllers\Admin\PengelolaanProdukPemilahController;
+use App\Http\Controllers\Admin\PengelolaanSampahController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -36,8 +38,12 @@ Route::middleware('guest')->group(function() {
 // only users logged in
 Route::middleware('auth')->group(function() {
     // admin
-    Route::get('admin', [AdminDashboardController::class, 'index'])->middleware('auth');
+    Route::get('admin', [AdminDashboardController::class, 'index']);
     
+    Route::get('produk-pemilah', [PengelolaanProdukPemilahController::class, 'index']);
+
+    Route::get('kelola-sampah', [PengelolaanSampahController::class, 'index']);
+
     // logout
     Route::post('logout', LogoutController::class)->name('logout');
 });
