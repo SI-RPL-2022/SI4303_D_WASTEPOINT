@@ -24,7 +24,7 @@
 
     <!-- Nav Item - Data Sampah -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/kelola-sampah">
             <i class="bi bi-trash3-fill"></i>
             <span>Penukaran Sampah</span>
         </a>
@@ -51,7 +51,7 @@
 
     <!-- Nav Item - Produk -->
     <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+        <a class="nav-link" href="/produk-pemilah">
             <i class="bi bi-basket2-fill"></i>
             <span>Data Produk</span>
         </a>
