@@ -8,7 +8,7 @@
 
          <!-- Page Heading -->
          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h2 class="mb-0 text-dark">Dashboard</h2>
+            <h3 class="mb-0 admin-title">Dashboard</h3>
         </div>
 
         <!-- Content Row -->

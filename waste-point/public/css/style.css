@@ -115,6 +115,24 @@ footer hr {
     width: 36px;
 }
 
+.admin-title {
+    font-weight: bold;
+    color: #212529;
+}
+
+.sidebar li.active a {
+    color: #32854D !important;
+}
+
+.sidebar li.active .nav-link i.bi,
+.sidebar li.active .nav-link i.fas {
+    color: #32854D;
+}
+
+.modal-style {
+    color: black;
+}
+
 @media screen and (max-width: 992px) {
     #main-view {
         text-align: center;

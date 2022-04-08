@@ -10,10 +10,6 @@ class PengelolaanSampahController extends Controller
 {
     public function index()
     {
-        
-        if (!Auth::user()->is_admin){
-            abort(403);
-        }
-        return view('admin.pengelolaandatasampah');    
+        return view('admin.penukaran_sampah');
     }
 }

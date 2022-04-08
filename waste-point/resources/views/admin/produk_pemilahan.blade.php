@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', 'Pengelolaan Data Sampah')
+@section('title', 'Dashboard')
     
 @section('content')
     <!-- Begin Page Content -->
@@ -8,7 +8,7 @@
 
          <!-- Page Heading -->
          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h2 class="mb-0 text-dark">Pengelolaan Data Sampah</h2>
+            <h3 class="mb-0 admin-title">Data Produk Pemilahan</h3>
         </div>
 
 
