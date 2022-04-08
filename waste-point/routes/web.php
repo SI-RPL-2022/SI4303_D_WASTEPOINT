@@ -1,13 +1,13 @@
 <?php
 
-use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\PengelolaanProdukPemilahController;
-use App\Http\Controllers\Admin\PengelolaanSampahController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\LogoutController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Penukaran\SampahController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\AdminDashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\PengelolaanProdukPemilahController as PengelolaanProduk;
+use App\Http\Controllers\Admin\PengelolaanSampahController as PengelolaanSampah;
+use App\Http\Controllers\Auth\LoginController as Login;
+use App\Http\Controllers\Auth\LogoutController as Logout;
+use App\Http\Controllers\Auth\RegisterController as Register;
+use App\Http\Controllers\Penukaran\SampahController as Sampah;
+use App\Http\Controllers\HomeController as Home;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,28 +22,30 @@ use Illuminate\Support\Facades\Route;
 */
 
 // free access
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/penukaran-sampah',[SampahController::class, 'index'])->name('penukaran-sampah');
-Route::post('/penukaran-sampah',[SampahController::class, 'store'])->name('penukaran-sampah');
+Route::get('/', [Home::class, 'index']);
+Route::get('/penukaran-sampah',[Sampah::class, 'index'])->name('penukaran-sampah');
+Route::post('/penukaran-sampah',[Sampah::class, 'store'])->name('penukaran-sampah');
 
 // only guest for access
 Route::middleware('guest')->group(function() {
     //register & login
-    Route::get('register', [RegisterController::class, 'index'])->name('register');
-    Route::post('register', [RegisterController::class, 'store'])->name('register');
-    Route::get('login', [LoginController::class, 'index'])->name('login');
-    Route::post('login', [LoginController::class, 'authenticate'])->name('login');
+    Route::get('register', [Register::class, 'index'])->name('register');
+    Route::post('register', [Register::class, 'store'])->name('register');
+    Route::get('login', [Login::class, 'index'])->name('login');
+    Route::post('login', [Login::class, 'authenticate'])->name('login');
 });
 
 // only users logged in
 Route::middleware('auth')->group(function() {
     // admin
-    Route::get('admin', [AdminDashboardController::class, 'index']);
+    Route::prefix('admin')->middleware('ensureRole:admin')->group(function() {
+        Route::get('/', [AdminDashboard::class, 'index'])->name('admin.dashboard');
+        
+        Route::get('data-produk-pemilahan', [PengelolaanProduk::class, 'index'])->name('admin.data-produk-pemilahan');
     
-    Route::get('produk-pemilah', [PengelolaanProdukPemilahController::class, 'index']);
-
-    Route::get('kelola-sampah', [PengelolaanSampahController::class, 'index']);
+        Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
+    });
 
     // logout
-    Route::post('logout', LogoutController::class)->name('logout');
+    Route::post('logout', Logout::class)->name('logout');
 });
