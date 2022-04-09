@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\LoginController as Login;
 use App\Http\Controllers\Auth\LogoutController as Logout;
 use App\Http\Controllers\Auth\RegisterController as Register;
 use App\Http\Controllers\Penukaran\SampahController as Sampah;
+use App\Http\Controllers\Penukaran\ProdukController as Produk;
 use App\Http\Controllers\HomeController as Home;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [Home::class, 'index']);
 Route::get('/penukaran-sampah',[Sampah::class, 'index'])->name('penukaran-sampah');
 Route::post('/penukaran-sampah',[Sampah::class, 'store'])->name('penukaran-sampah');
+
+Route::get('penukaran-produk', [Produk::class, 'index'])->name('penukaran-produk');
 
 // only guest for access
 Route::middleware('guest')->group(function() {
