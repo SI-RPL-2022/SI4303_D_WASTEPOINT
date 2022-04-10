@@ -49,4 +49,44 @@ class PengelolaanProdukPemilahController extends Controller
         ]);
         return redirect('/admin/data-produk-pemilahan')->with('create_success', 'Data produk berhasil ditambahkan!');
     }
+
+    public function detail($id)
+    {
+        $products = Product::where('id', $id)->get();
+        return view('admin.detail_produk_pemilahan', [
+            'products' => $products,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        if ($request->image != null) {
+            $product_image = time().'.'.$request->image->extension();
+            $request->image->move(public_path('products'), $product_image);
+        
+            Product::where('id', $id)->update([
+                'product_name' => $request->product_name,
+                'slug' => SlugService::createSlug(Product::class, 'slug', $request->product_name),
+                'price_point' => $request->price_point,
+                'stock' => $request->stock,
+                'image' => $product_image,
+                'description' => $request->description,
+            ]);
+        } else {
+            Product::where('id', $id)->update([
+                'product_name' => $request->product_name,
+                'slug' => SlugService::createSlug(Product::class, 'slug', $request->product_name),
+                'price_point' => $request->price_point,
+                'stock' => $request->stock,
+                'description' => $request->description,
+            ]);
+        }
+        return redirect('/admin/data-produk-pemilahan')->with('update_success', 'Update data produk berhasil!');
+    }
+
+    public function delete($id)
+    {
+        Product::where('id', $id)->delete();
+        return redirect('/admin/data-produk-pemilahan')->with('update_success', 'data produk berhasil dihapus');
+    }
 }

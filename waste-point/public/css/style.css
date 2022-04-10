@@ -1,49 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap");
 
 * {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: "Nunito Sans", sans-serif;
 }
 
 .navbar {
     padding-top: 12px;
     padding-bottom: 12px;
-    transition: all .2s;
+    transition: all 0.2s;
     border-bottom: 1px solid #dedede;
 }
 
-.btn-green
-.btn-login,
+.btn-green .btn-login,
 .btn-register {
-    transition: ease-in-out .3s;
+    transition: ease-in-out 0.3s;
 }
 
 .btn-login,
 .btn-green,
 .bg-green {
-    background-color: #32854D;
+    background-color: #32854d;
     color: white;
 }
 
 .btn-yellow {
-    background-color: #F4C158;
+    background-color: #f4c158;
     color: white;
 }
 
 .btn-green-secondary {
-    background-color: #79BA2A;
+    background-color: #79ba2a;
     color: white;
 }
 
 .btn-register {
-    border: 1px solid #32854D;
-    color: #32854D;
+    border: 1px solid #32854d;
+    color: #32854d;
 }
 
 .btn-gray {
     background-color: #dedede;
 }
 
-.btn-login, .btn-register {
+.btn-login,
+.btn-register {
     padding: 8px 24px;
 }
 
@@ -54,12 +54,12 @@
 }
 
 .btn-green-secondary:hover {
-    background-color: #79BA2A;
+    background-color: #79ba2a;
     color: white;
 }
 
 .btn-register:hover {
-    background-color: #32854D;
+    background-color: #32854d;
     color: white;
 }
 
@@ -69,15 +69,15 @@
 }
 
 .text-green {
-    color: #32854D;
+    color: #32854d;
 }
 
 .text-green-secondary {
-    color: #79BA2A;
+    color: #79ba2a;
 }
 
 .text-yellow {
-    color: #F4C158;
+    color: #f4c158;
 }
 
 .btn-green-secondary:hover {
@@ -95,7 +95,7 @@
     height: 4px;
     border-radius: 12px;
     border: 0;
-    background: #32854D;
+    background: #32854d;
     opacity: 1;
 }
 
@@ -106,7 +106,7 @@ footer hr {
 
 #service-view .card,
 #waste-type img {
-    transition: .2s;
+    transition: 0.2s;
 }
 
 #service-view .card:hover,
@@ -126,7 +126,7 @@ footer hr {
 }
 
 .auth a.text-green:hover {
-    color: #32854D;
+    color: #32854d;
 }
 
 .avatar {
@@ -135,6 +135,7 @@ footer hr {
 
 .jumbotron .card {
     color: #212529;
+    margin-top: 40px;
 }
 
 .admin-title {
@@ -147,12 +148,12 @@ footer hr {
 }
 
 .sidebar li.active a {
-    color: #32854D !important;
+    color: #32854d !important;
 }
 
 .sidebar li.active .nav-link i.bi,
 .sidebar li.active .nav-link i.fas {
-    color: #32854D;
+    color: #32854d;
 }
 
 #managed.card {
