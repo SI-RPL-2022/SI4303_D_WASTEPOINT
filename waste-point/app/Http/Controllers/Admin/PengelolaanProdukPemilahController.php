@@ -4,12 +4,49 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Models\Product;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class PengelolaanProdukPemilahController extends Controller
 {
     public function index()
+
     {
-        return view('admin.produk_pemilahan');
+        $number = 1;
+        $products = Product::all();
+        return view('admin.produk_pemilahan', [
+            'products' => $products,
+            'number' => $number
+        ]);
+
+    }
+
+    public function create()
+    {
+        return view('admin.tambah_produk_pemilahan');
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'product_name' => ['required'],
+            'price_point' => ['required'],
+            'stock' => ['required', 'min:1'],
+            'image' => ['required', 'image', 'mimes:png,jpg,jpeg,svg,PNG,JPG,JPEG', 'max:2048'],
+            'description' => ['required']
+        ]);
+        
+        $product_image = time().'.'.$request->image->extension();
+        $request->image->move(public_path('products'), $product_image);
+        
+        Product::create([
+            'product_name' => $request->product_name,
+            'slug' => SlugService::createSlug(Product::class, 'slug', $request->product_name),
+            'price_point' => $request->price_point,
+            'stock' => $request->stock,
+            'image' => $product_image,
+            'description' => $request->description,
+        ]);
+        return redirect('/admin/data-produk-pemilahan')->with('create_success', 'Data produk berhasil ditambahkan!');
     }
 }

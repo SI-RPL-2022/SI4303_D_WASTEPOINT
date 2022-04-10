@@ -24,6 +24,11 @@
     color: white;
 }
 
+.btn-yellow {
+    background-color: #F4C158;
+    color: white;
+}
+
 .btn-green-secondary {
     background-color: #79BA2A;
     color: white;
@@ -32,6 +37,10 @@
 .btn-register {
     border: 1px solid #32854D;
     color: #32854D;
+}
+
+.btn-gray {
+    background-color: #dedede;
 }
 
 .btn-login, .btn-register {
@@ -54,12 +63,21 @@
     color: white;
 }
 
+.btn-yellow:hover {
+    background-color: #d9a337;
+    color: white;
+}
+
 .text-green {
     color: #32854D;
 }
 
 .text-green-secondary {
     color: #79BA2A;
+}
+
+.text-yellow {
+    color: #F4C158;
 }
 
 .btn-green-secondary:hover {
@@ -115,9 +133,17 @@ footer hr {
     width: 36px;
 }
 
+.jumbotron .card {
+    color: #212529;
+}
+
 .admin-title {
     font-weight: bold;
-    color: #212529;
+    color: black;
+}
+
+.table thead {
+    color: black !important;
 }
 
 .sidebar li.active a {
@@ -129,7 +155,26 @@ footer hr {
     color: #32854D;
 }
 
-.modal-style {
+#managed.card {
+    width: 600px;
+    color: #212529;
+}
+
+#detail,
+#detail input,
+#detail textarea,
+#detail select,
+#detail label {
+    color: #212529;
+}
+
+#managed input,
+#managed textarea,
+#managed select {
+    color: #212529;
+}
+
+.modal-delete {
     color: black;
 }
 
@@ -149,7 +194,8 @@ footer hr {
         width: 24%;
     }
 
-    #blog-view .card {
+    #blog-view .card,
+    #managed.card {
         width: 100%;
     }
 
