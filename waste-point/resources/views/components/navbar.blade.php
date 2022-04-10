@@ -70,7 +70,7 @@
                                 @else
                                     <li>
                                         <a class="dropdown-item" href="/admin">
-                                            <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                            <a href ="{{ Route('user.dashboard-user') }}"class="bi bi-layout-text-sidebar-reverse me-2"></a>
                                             Dashboard
                                         </a>
                                     </li>

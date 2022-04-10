@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController as AdminDashboard;
+use App\Http\Controllers\User\DashboardUserController as UserDashboard;
 use App\Http\Controllers\Admin\PengelolaanProdukPemilahController as PengelolaanProduk;
 use App\Http\Controllers\Admin\PengelolaanSampahController as PengelolaanSampah;
 use App\Http\Controllers\Auth\LoginController as Login;
@@ -47,6 +48,11 @@ Route::middleware('auth')->group(function() {
         Route::get('data-produk-pemilahan', [PengelolaanProduk::class, 'index'])->name('admin.data-produk-pemilahan');
     
         Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
+    });
+
+    Route::prefix('user')->middleware('ensureRole:user')->group(function() {
+        
+        Route::get('/', [UserDashboard::class, 'index'])->name('user.dashboard-user');
     });
 
     // logout
