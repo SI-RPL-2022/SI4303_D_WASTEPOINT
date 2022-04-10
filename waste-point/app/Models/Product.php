@@ -7,5 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+    use HasFactory, Sluggable;
+
+    protected $fillable = [
+        'product_name',
+        'slug',
+        'price_point',
+        'stock',
+        'image',
+        'description'
+    ];
+
+    public function sluggable(): array
+    {
+        return [
+            'slug' => [
+                'source' => 'product_name'
+            ]
+        ];
+    }
 }
