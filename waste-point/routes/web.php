@@ -53,6 +53,9 @@ Route::middleware('auth')->group(function() {
         Route::post('data-produk-pemilahan/delete/{id}', [PengelolaanProduk::class, 'delete']);
     
         Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
+        Route::get('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'detail']);
+        Route::post('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'update']);
+        Route::post('data-penukaran-sampah/delete/{id}', [PengelolaanSampah::class, 'delete']);
     });
 
     Route::prefix('user')->middleware('ensureRole:user')->group(function() {
