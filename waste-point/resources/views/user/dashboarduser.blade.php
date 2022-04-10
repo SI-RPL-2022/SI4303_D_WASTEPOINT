@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.user')
 
-@section('title', 'Beranda')
+
     
 @section('content')
 
 <section id="main-profile" class="mb-5">
-    <div class="jumbotron bg-green rounded p-4 mt-4">
+    <div class="jumbotron bg-green rounded p-4 mt-5">
         <h2 class="fw-bold mb-2">Halo, {{ Auth::user()->name }} !</h2>
         <div class="d-md-flex align-items-center justify-content-between mb-4">
             <p class="mb-md-0 mb-2">Tukarkan sampahmu hanya dari rumah dan dapatkan poin dengan cepat.</p>
