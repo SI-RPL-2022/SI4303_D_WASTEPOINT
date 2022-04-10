@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ Route('penukaran-sampah') }}">Sampah</a></li>
-                        <li><a class="dropdown-item" href="#">Produk Pemilahan Sampah</a></li>
+                        <li><a class="dropdown-item" href="{{ Route('penukaran-produk') }}">Produk Pemilahan Sampah</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Konversi Poin</a></li>
                     </ul>
