@@ -46,6 +46,11 @@ Route::middleware('auth')->group(function() {
         Route::get('/', [AdminDashboard::class, 'index'])->name('admin.dashboard');
         
         Route::get('data-produk-pemilahan', [PengelolaanProduk::class, 'index'])->name('admin.data-produk-pemilahan');
+        Route::get('data-produk-pemilahan/create', [PengelolaanProduk::class, 'create']);
+        Route::post('data-produk-pemilahan/create', [PengelolaanProduk::class, 'store']);
+        Route::get('data-produk-pemilahan/detail/{id}', [PengelolaanProduk::class, 'detail']);
+        Route::post('data-produk-pemilahan/detail/{id}', [PengelolaanProduk::class, 'update']);
+        Route::post('data-produk-pemilahan/delete/{id}', [PengelolaanProduk::class, 'delete']);
     
         Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
     });
