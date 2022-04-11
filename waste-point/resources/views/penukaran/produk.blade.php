@@ -57,46 +57,48 @@
 
     <section id="list_product" class="pt-5 pb-4 mb-2">
         <div class="mb-5 pt-5">
-            @if ($products->isEmpty())
-            <div class="text-center mb-5">
-                <h5 class="fw-bold mb-4">Saat ini belum ada produk yang tersedia</h5>
-                <a href="https://wa.me/08111761179" target="_blank" class="btn btn-green py-2 px-4">Hubungi WhatsApp Admin</a>
-            </div>
-            @else
-                <div class="row justify-content-between mb-5">
-                    <div class="col-lg-4 col-12 mb-lg-0 mb-4">
-                        <div class="sticky-top">
-                            <h4 class="fw-bold">Pilihan produk</h4>
-                            <p>Produk pemilahan sampah yang bisa ditukarkan dengan point hasil akumulasi penukaran sampah</p>
-                            @auth
-                                <div class="card rounded">
-                                    <div class="card-body d-flex">
-                                        <p class="mb-0">Waste Point</p>
-                                        <div class="ms-auto">
-                                            <img src="{{ asset('images/points.svg') }}"> <span class="align-middle">{{ Auth::user()->waste_points }}</span>
-                                        </div>
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="{{ Route('penukaran-sampah') }}" class="btn btn-green w-100">Dapatkan poin lagi</a>
+            <div class="row justify-content-between mb-5">
+                <div class="col-lg-4 col-12 mb-lg-0 mb-4">
+                    <div class="sticky-top">
+                        <h4 class="fw-bold">Pilihan produk</h4>
+                        <p>Produk pemilahan sampah yang bisa ditukarkan dengan point hasil akumulasi penukaran sampah</p>
+                        @auth
+                            <div class="card rounded">
+                                <div class="card-body d-flex">
+                                    <p class="mb-0">Waste Point</p>
+                                    <div class="ms-auto">
+                                        <img src="{{ asset('images/points.svg') }}"> 
+                                        <span class="align-middle">
+                                            @if (!Auth::user()->waste_poins == null) {{ Auth::user()->waste_poins }} @else 0 @endif
+                                        </span>
                                     </div>
                                 </div>
-                            @else
-                                <div class="card rounded">
-                                    <p class="mb-0 py-3 text-center">Sepertinya kamu belum masuk menggunakan akun Waste Point, Yuk login dulu!</p>
-                                    <div class="card-footer">
-                                        <a href="{{ Route('login') }}" class="btn btn-green w-100">Login sekarang</a>
-                                    </div>
+                                <div class="card-footer">
+                                    <a href="{{ Route('penukaran-sampah') }}" class="btn btn-green w-100">Dapatkan poin lagi</a>
                                 </div>
-                            @endauth
-                        </div>
-                    </div>
-                    <div class="col-lg-7 col-12">
-                        <form action="" method="get" class="d-flex">
-                            <div class="input-group mb-2 shadow-sm rounded">
-                                <input type="search" class="form-control" placeholder="Cari nama produk.." name="keyword" value="{{ request('keyword') }}">
-                                <button class="btn btn-green text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
                             </div>
-                        </form>
+                        @else
+                            <div class="card rounded">
+                                <p class="mb-0 py-3 text-center">Sepertinya kamu belum masuk menggunakan akun Waste Point, Yuk login dulu!</p>
+                                <div class="card-footer">
+                                    <a href="{{ Route('login') }}" class="btn btn-green w-100">Login sekarang</a>
+                                </div>
+                            </div>
+                        @endauth
+                    </div>
+                </div>
+                <div class="col-lg-7 col-12">
+                    <form action="{{ Route('penukaran-produk.search') }}" method="get" class="d-flex">
+                        <div class="input-group mb-2 shadow-sm rounded">
+                            <input type="search" class="form-control" placeholder="Cari nama produk.." name="keyword" value="{{ request('keyword') }}">
+                            <button class="btn btn-green text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        </div>
+                    </form>
+                    @if ($products->isEmpty())
+                        <div class="text-center my-5">
+                            <h5 class="fw-bold py-4">Saat ini produk belum tersedia</h5>
+                        </div>
+                    @else
                         <div class="row justify-content-between mt-4">
                             @foreach ($products as $product)
                                 <div class="col-lg-6 col-12 mb-4">
@@ -115,9 +117,9 @@
                                 </div>
                             @endforeach
                         </div>
-                    </div>
+                    @endif
                 </div>
-            @endif
+            </div>
         </div>
     </section>
 @endsection
