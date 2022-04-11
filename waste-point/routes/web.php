@@ -61,6 +61,7 @@ Route::middleware('auth')->group(function() {
     Route::prefix('user')->middleware('ensureRole:user')->group(function() {
         
         Route::get('/', [UserDashboard::class, 'index'])->name('user.dashboard-user');
+        Route::get('penukaran-sampah/detail/{id}', [UserDashboard::class, 'sampah']);
     });
 
     // logout
