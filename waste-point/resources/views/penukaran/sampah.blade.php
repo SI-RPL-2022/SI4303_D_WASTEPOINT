@@ -128,7 +128,7 @@
                             <label for="weight" class="form-label fw-bolder">Berat sampah</label>
                             <div class="input-group">
                                 <input type="number" class="form-control" id="weight" name="weight" value="1" min="1" placeholder="Masukkan berat sampah" value="{{ old('waste_weight') }}">
-                                <span class="input-group-text">Kg</span>
+                                <span class="input-group-text">Kg/Liter</span>
                                 @error('weight')
                                     <div class="text-danger mt-2">
                                         {{ $message }}
