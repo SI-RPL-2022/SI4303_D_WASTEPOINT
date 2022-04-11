@@ -15,4 +15,13 @@ class ProdukController extends Controller
             'products' => $products,
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->keyword;
+        $products = Product::where('product_name', 'like', '%' . $search . '%')->get();
+        return view('penukaran.produk', [
+            'products' => $products,
+        ]);
+    }
 }

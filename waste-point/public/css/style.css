@@ -68,7 +68,9 @@
     color: white;
 }
 
-.text-green {
+.text-green,
+.btn-link,
+.btn-link:hover {
     color: #32854d;
 }
 
@@ -177,6 +179,19 @@ footer hr {
 
 .modal-delete {
     color: black;
+}
+
+.bg-gray {
+    background-color: #f2f2f2;
+}
+
+.page-link {
+    color: #32854D;
+}
+
+.page-item.active .page-link {
+    background-color: #32854D;
+    border: #32854D;
 }
 
 @media screen and (max-width: 992px) {
