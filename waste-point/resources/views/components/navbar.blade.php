@@ -69,8 +69,8 @@
                                     </li>
                                 @else
                                     <li>
-                                        <a class="dropdown-item" href="/admin">
-                                            <a href ="{{ Route('user.dashboard-user') }}"class="bi bi-layout-text-sidebar-reverse me-2"></a>
+                                        <a class="dropdown-item" href="{{ Route('admin.dashboard') }}">
+                                            <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
                                             Dashboard
                                         </a>
                                     </li>
