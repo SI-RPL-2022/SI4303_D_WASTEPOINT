@@ -19,7 +19,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                         <li><a class="dropdown-item" href="{{ Route('penukaran-sampah') }}">Sampah</a></li>
-                        <li><a class="dropdown-item" href="#">Produk Pemilahan Sampah</a></li>
+                        <li><a class="dropdown-item" href="{{ Route('penukaran-produk') }}">Produk Pemilahan Sampah</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item" href="#">Konversi Poin</a></li>
                     </ul>
@@ -56,7 +56,7 @@
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 @if (!Auth::user()->is_admin)
                                     <li>
-                                        <a class="dropdown-item" href="">
+                                        <a class="dropdown-item" href="{{ Route('user.dashboard-user') }}">
                                             <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
                                             Dashboard
                                         </a>
@@ -70,7 +70,7 @@
                                 @else
                                     <li>
                                         <a class="dropdown-item" href="/admin">
-                                            <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
+                                            <a href ="{{ Route('user.dashboard-user') }}"class="bi bi-layout-text-sidebar-reverse me-2"></a>
                                             Dashboard
                                         </a>
                                     </li>
