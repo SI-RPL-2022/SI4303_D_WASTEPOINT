@@ -49,7 +49,7 @@
                                             @endif
                                             <td>
                                                 <a href="data-penukaran-sampah/detail/{{$waste->id}}" class="btn btn-secondary mb-2 mb-lg-0">Detail</a>
-                                                <form action="data-penukaran-sampah/delete/{{$waste->id}}" method="POST">
+                                                <form action="data-penukaran-sampah/delete/{{$waste->id}}" method="POST" class="d-inline">
                                                     @csrf
                                                     <button type="submit" class="btn btn-danger">Hapus</button>
                                                 </form>
