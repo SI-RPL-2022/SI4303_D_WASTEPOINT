@@ -80,7 +80,7 @@ class PengelolaanSampahController extends Controller
 
     public function delete($id)
     {
-        Waste::where('id'. $id)->delete();
+        Waste::where('id', $id)->delete();
         return back()->with('update_success', 'Data sampah berhasil dihapus');
     }
 }
