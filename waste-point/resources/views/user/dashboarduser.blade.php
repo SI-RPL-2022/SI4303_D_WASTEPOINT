@@ -54,7 +54,12 @@
                         <div class="d-md-flex d-block justify-content-between align-items-end">
                             <div class="mb-2">
                                 <small>{{ $waste->created_at }} WIB</small>
-                                <div class="mt-2"><span class="fw-bold">{{ $waste->weight }}</span> Kilogram</div>
+                                <div class="mt-2"><span class="fw-bold">{{ $waste->weight }}</span> 
+                                    @if ($waste->category == $kategori[3])
+                                         Liter
+                                    @else
+                                         Kilogram
+                                    @endif</div>
                                 <div class="mt-2">Kategori <span class="fw-bold">{{ $waste->category }}</span></div>
                                 @if ($waste->status == 'Selesai')
                                     <div class="mt-2">Total WastePoin <span class="fw-bold">

@@ -26,11 +26,13 @@ class DashboardUserController extends Controller
     {
 
         $wastes = Waste::where('id', $id)->get();
+        $kategori = ['Kertas', 'Plastik', 'Kaleng', 'Jelantah'];
 
         foreach ($wastes as $waste) {
             if ($waste->user_id == Auth::user()->id) {
                 return view('user.detail_sampah', [
                     'wastes' => $wastes,
+                    'kategori'=> $kategori
                 ]);
             } else {
                 abort(404);

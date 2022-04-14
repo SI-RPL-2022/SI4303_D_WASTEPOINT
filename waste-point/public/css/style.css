@@ -194,6 +194,10 @@ footer hr {
     border: #32854D;
 }
 
+.detail-sampah {
+    width: 450px;
+}
+
 @media screen and (max-width: 992px) {
     #main-view {
         text-align: center;
@@ -216,6 +220,9 @@ footer hr {
     }
 
     .auth {
+        width: 100%;
+    }
+    .detail-sampah {
         width: 100%;
     }
 }
