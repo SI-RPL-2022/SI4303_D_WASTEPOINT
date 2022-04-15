@@ -56,7 +56,10 @@
                                             <td>{{ $product->stock }}</td>
                                             <td>
                                                 <a href="data-produk-pemilahan/detail/{{ $product->id }}" class="btn btn-secondary mb-2 mb-lg-0">Detail</a>
-                                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">Hapus</button>
+                                                <form action="data-produk-pemilahan/delete/{{ $product->id }}" class="d-inline" method="POST">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">Hapus</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -70,7 +73,7 @@
         @endif
     </div>
 
-    <!-- delete modal -->
+    {{-- <!-- delete modal -->
     <div class="modal modal-delete fade" id="deleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -91,7 +94,7 @@
                     @endforeach
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     
 @endsection
