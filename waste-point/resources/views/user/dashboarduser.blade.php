@@ -35,7 +35,7 @@
     </section>
 
     <section id="waste-exchange">
-        <h4 class="fw-bold mb-4">Penukaran Sampah</h4>
+        <h4 class="fw-bold mb-4"><i class="bi bi-trash3-fill text-green me-2"></i>Penukaran Sampah</h4>
         @if ($wastes->isEmpty())
             <p class="py-3 mb-0"><em>Belum ada riwayat penukaran sampah</em></p>
         @else
