@@ -22,6 +22,7 @@ class DashboardUserController extends Controller
             
         ]);
     }
+    
     public function sampah($id)
     {
 

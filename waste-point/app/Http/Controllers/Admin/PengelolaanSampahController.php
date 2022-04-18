@@ -13,7 +13,7 @@ class PengelolaanSampahController extends Controller
     public function index()
     {
         $number = 1;
-        $wastes = Waste::all();
+        $wastes = Waste::orderBy('id', 'desc')->get();
         return view('admin.penukaran_sampah', [
             'wastes' => $wastes,
             'number' => $number
