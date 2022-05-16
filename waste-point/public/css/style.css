@@ -11,6 +11,29 @@
     border-bottom: 1px solid #dedede;
 }
 
+.line::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2.5px;
+    background: #32854D;
+    transition: width .4s;
+}
+
+.line:hover::after {
+    width: 100%;
+}
+
+a.dropdown-item:hover {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.nav-item i.bi,
+.nav-item i.fa {
+    font-size: 14px;
+}
+
 .btn-green .btn-login,
 .btn-register {
     transition: ease-in-out 0.3s;
@@ -132,7 +155,7 @@ footer hr {
 }
 
 .avatar {
-    width: 36px;
+    width: 32px;
 }
 
 .jumbotron .card {
@@ -198,6 +221,19 @@ footer hr {
     width: 450px;
 }
 
+.detail-produk {
+    width: 300px;
+}
+
+.nav-tabs .nav-link,
+.nav-tabs .nav-link.active {
+    color: #32854D !important;
+}
+
+.partner {
+    width: 120px;
+}
+
 @media screen and (max-width: 992px) {
     #main-view {
         text-align: center;
@@ -215,14 +251,10 @@ footer hr {
     }
 
     #blog-view .card,
-    #managed.card {
-        width: 100%;
-    }
-
-    .auth {
-        width: 100%;
-    }
-    .detail-sampah {
+    #managed.card,
+    .auth,
+    .detail-sampah,
+    .detail-produk {
         width: 100%;
     }
 }

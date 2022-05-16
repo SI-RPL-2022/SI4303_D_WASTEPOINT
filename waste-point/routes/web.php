@@ -28,10 +28,10 @@ Route::get('/', [Home::class, 'index']);
 Route::get('/penukaran-sampah',[Sampah::class, 'index'])->name('penukaran-sampah');
 Route::post('/penukaran-sampah',[Sampah::class, 'store'])->name('penukaran-sampah');
 
-Route::prefix('penukaran-produk')->group(function() {
-    Route::get('/', [Produk::class, 'index'])->name('penukaran-produk');
-    Route::get('search', [Produk::class, 'search'])->name('penukaran-produk.search');
-});
+Route::get('penukaran-produk', [Produk::class, 'index'])->name('penukaran-produk');
+Route::get('penukaran-produk/search', [Produk::class, 'search'])->name('penukaran-produk.search');
+Route::get('penukaran-produk/{slug}', [Produk::class, 'detail']);
+Route::post('penukaran-produk/{slug}', [Produk::class, 'store']);
 
 // only guest for access
 Route::middleware('guest')->group(function() {

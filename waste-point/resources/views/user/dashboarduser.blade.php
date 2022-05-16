@@ -43,45 +43,46 @@
                 @foreach ($wastes as $waste)
                     <div class="mb-3">
                         @if ($waste->status == 'Selesai')
-                            <small class="text-success fw-bold py-2 px-3 rounded" style="background-color: rgb(225, 248, 228)">{{ $waste->status }}</small>        
+                            <small class="text-success fw-bold py-2 px-3 rounded" style="background-color: rgb(25, 135, 84, 0.15)">{{ $waste->status }}</small>        
                         @elseif ($waste->status == 'Dalam penjemputan')
                             <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(223, 230, 241)">{{ $waste->status }}</small>
                         @else
-                            <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(249,242,244)">{{ $waste->status }}</small>
+                            <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(220,53,69, 0.15)">{{ $waste->status }}</small>
                         @endif
                     </div>
                     <div class="container bg-gray px-4 py-3 rounded">
                         <div class="d-md-flex d-block justify-content-between align-items-end">
                             <div class="mb-2">
-                                <small>{{ $waste->created_at }} WIB</small>
-                                <div class="mt-2"><span class="fw-bold">{{ $waste->weight }}</span> 
-                                    @if ($waste->category == $kategori[3])
-                                         Liter
-                                    @else
-                                         Kilogram
-                                    @endif</div>
-                                <div class="mt-2">Kategori <span class="fw-bold">{{ $waste->category }}</span></div>
+                                <small>{{ $waste->created_at }}</small>
+                                <h6 class="mt-2">
+                                    <span class="fw-bold">{{ $waste->weight }}</span> Kg 
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                    </svg>
+                                    <span class="fw-bold">{{ $waste->category }}</span>
+                                </h6>
                                 @if ($waste->status == 'Selesai')
-                                    <div class="mt-2">Total WastePoin <span class="fw-bold">
-                                        @if ($waste->category == $kategori[0])
-                                            {{ $waste->weight * 5}}
-                                        @elseif ($waste->category == $kategori[1])
-                                           {{ $waste->weight * 8}}
-                                        @elseif ($waste->category == $kategori[2])
-                                           {{ $waste->weight * 10}}
-                                        @elseif ($waste->category == $kategori[3])
-                                           {{ $waste->weight * 10}}
-                                        @endif
-                                    </span></div>
+                                    <div class="mt-2">Total WastePoin 
+                                        <img src="{{ asset('images/points.svg') }}" class="ms-2">
+                                        <span class="fw-bold align-middle">
+                                            @if ($waste->category == $kategori[0])
+                                                {{ $waste->weight * 5}}
+                                            @elseif ($waste->category == $kategori[1])
+                                                {{ $waste->weight * 8}}
+                                            @elseif ($waste->category == $kategori[2])
+                                                {{ $waste->weight * 10}}
+                                            @elseif ($waste->category == $kategori[3])
+                                                {{ $waste->weight * 10}}
+                                            @endif
+                                        </span>
+                                    </div>
                                 @endif
                             </div>
                             <span>
-                                @if ($waste->status == 'Selesai')
-                                    <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4">Lihat Detail</a>
-                                @else 
+                                @if ($waste->status != 'Selesai')
                                     <a href="https://wa.me/08111761179" class="btn-link me-3">Hubungin admin</a>
-                                    <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4">Lihat Detail</a>
                                 @endif
+                                <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
                             </span>
                         </div>
                     </div>

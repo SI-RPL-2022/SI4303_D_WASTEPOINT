@@ -10,21 +10,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav gap-2 ms-lg-5 ms-lg-3 ms-0">
-                <li class="nav-item mt-lg-0 mt-3">
+                <li class="nav-item line mt-lg-0 mt-3">
                     <a class="nav-link active" href="/">Beranda</a>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item line dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Penukaran
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="{{ Route('penukaran-sampah') }}">Sampah</a></li>
-                        <li><a class="dropdown-item" href="{{ Route('penukaran-produk') }}">Produk Pemilahan Sampah</a></li>
+                        <li>
+                            <a class="dropdown-item" href="{{ Route('penukaran-sampah') }}">
+                                <i class="bi bi-trash3 me-2"></i> Sampah
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ Route('penukaran-produk') }}">
+                                <i class="bi bi-cart4 me-2"></i> Produk Pemilahan Sampah
+                            </a>
+                        </li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Konversi Poin</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">
+                                <i class="bi bi-cash-coin me-2"></i> Konversi Poin
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown">
+                <li class="nav-item line dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Informasi
                     </a>
@@ -33,7 +45,7 @@
                         <li><a class="dropdown-item" href="#">Cerita Tentang Kami</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item line">
                     <a class="nav-link active" href="#">Blog</a>
                 </li>
             </ul>
@@ -77,10 +89,10 @@
                                 @endif
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <button class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                    <a href="#" class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                         <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
                                         Logout
-                                    </button>
+                                    </a>
                                 </li>
                             </ul>
                         </li>

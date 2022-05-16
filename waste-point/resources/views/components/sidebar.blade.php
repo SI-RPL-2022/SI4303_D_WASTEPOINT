@@ -72,10 +72,10 @@
 
      <!-- Nav Item - Logout -->
     <li class="nav-item">
-        <button type="submit" class="btn nav-link py-3 text-danger bg-white" data-toggle="modal" data-target="#logoutModal">
+        <a href="#" type="submit" class="nav-link py-3 text-danger bg-white" data-toggle="modal" data-target="#logoutModal">
             <i class="bi bi-box-arrow-left text-danger"></i>
             <span>Logout</span>
-        </button>
+        </a>
     </li>
 
     <!-- Divider -->

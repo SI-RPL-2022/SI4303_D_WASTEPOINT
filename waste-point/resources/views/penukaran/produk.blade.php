@@ -65,7 +65,7 @@
                         @auth
                             <div class="card rounded">
                                 <div class="card-body d-flex">
-                                    <p class="mb-0">Waste Point</p>
+                                    <p class="mb-0">WastePoin</p>
                                     <div class="ms-auto">
                                         <img src="{{ asset('images/points.svg') }}"> 
                                         <span class="align-middle">
@@ -106,11 +106,18 @@
                                         <img src="/products/{{ $product->image }}" class="card-img-top">
                                         <div class="card-body">
                                             <h6 class="card-title fw-bold">{{ $product->product_name }}</h6>
-                                            <p class="card-text">{{ $product->price_point }} point</p>
+                                            <p class="card-text">
+                                                <img src="{{ asset('images/points.svg') }}" alt="">
+                                                <span class="align-middle">{{ $product->price_point }}</span>
+                                            </p>
                                         </div>
                                         <ul class="list-group list-group-flush">
                                             <li class="list-group-item btn-gray">
-                                                <a href="{{ $product->slug }}" class="w-100 btn fw-bold">Tukarkan</a>
+                                                @if (Route::is('penukaran-produk.search'))
+                                                    <a href="{{ $product->slug }}" class="w-100 btn fw-bold">Tukarkan</a>
+                                                @else
+                                                    <a href="penukaran-produk/{{ $product->slug }}" class="w-100 btn fw-bold">Tukarkan</a>
+                                                @endif
                                             </li>
                                         </ul>
                                     </div>
