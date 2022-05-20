@@ -131,7 +131,7 @@
                                     @enderror
                                 </div>
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-green w-20 py-2 px-4 fw-bold rounded">Pesan produk</button>                            
+                                    <button type="submit" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange">Pesan produk</button>                            
                                 </div>
                             </form>
                         </div>

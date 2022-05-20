@@ -55,7 +55,7 @@ class ProdukController extends Controller
                 
                 return back()->with('exchange-success', 'Penukaran berhasil diproses! silahkan pantau status dan detail penukaran di dashboard');
             } else {
-                return back()->with('exchange-failed', 'Waste Point yang anda miliki masih kurang, ayo tukar sampah sekarang!');  
+                return back()->with('exchange-failed', 'Waste Point yang kamu miliki masih kurang, ayo tukar sampah sekarang!');  
             }
         } else {
             return back()->with('admin-restricted', 'Penukaran produk tidak diproses untuk Admin');

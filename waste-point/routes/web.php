@@ -28,6 +28,7 @@ Route::get('/', [Home::class, 'index']);
 Route::get('/penukaran-sampah',[Sampah::class, 'index'])->name('penukaran-sampah');
 Route::post('/penukaran-sampah',[Sampah::class, 'store'])->name('penukaran-sampah');
 
+// penukaran produk
 Route::get('penukaran-produk', [Produk::class, 'index'])->name('penukaran-produk');
 Route::get('penukaran-produk/search', [Produk::class, 'search'])->name('penukaran-produk.search');
 Route::get('penukaran-produk/{slug}', [Produk::class, 'detail']);
@@ -48,6 +49,7 @@ Route::middleware('auth')->group(function() {
     Route::prefix('admin')->middleware('ensureRole:admin')->group(function() {
         Route::get('/', [AdminDashboard::class, 'index'])->name('admin.dashboard');
         
+        // pengelolaan data produk
         Route::get('data-produk-pemilahan', [PengelolaanProduk::class, 'index'])->name('admin.data-produk-pemilahan');
         Route::get('data-produk-pemilahan/create', [PengelolaanProduk::class, 'create']);
         Route::post('data-produk-pemilahan/create', [PengelolaanProduk::class, 'store']);
@@ -55,6 +57,7 @@ Route::middleware('auth')->group(function() {
         Route::post('data-produk-pemilahan/detail/{id}', [PengelolaanProduk::class, 'update']);
         Route::post('data-produk-pemilahan/delete/{id}', [PengelolaanProduk::class, 'delete']);
     
+        // pengelolaan data penukaran sampah
         Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
         Route::get('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'detail']);
         Route::post('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'update']);

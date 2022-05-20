@@ -254,7 +254,8 @@ footer hr {
     #managed.card,
     .auth,
     .detail-sampah,
-    .detail-produk {
+    .detail-produk,
+    .exchange {
         width: 100%;
     }
 }
