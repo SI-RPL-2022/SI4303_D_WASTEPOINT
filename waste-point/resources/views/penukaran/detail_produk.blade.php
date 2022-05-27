@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Produk')
+@section('title') {{ 'Detail produk - ' . $product->product_name }} @endsection
     
 @section('content')
     @if (session('exchange-success'))
