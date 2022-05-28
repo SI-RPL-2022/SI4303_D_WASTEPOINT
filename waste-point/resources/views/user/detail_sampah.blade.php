@@ -31,7 +31,7 @@
                 </div>
                 <div class="d-md-flex d-block justify-content-between">
                     <p class="opacity-75 mb-3">Berat Sampah</p>
-                    <p class="mb-md-2 mb-4">{{ $waste->weight }}</p>
+                    <p class="mb-md-2 mb-4">{{ $waste->weight }} Kg</p>
                 </div>
                 <div class="d-md-flex d-block justify-content-between">
                     <p class="opacity-75 mb-3">Kategori Sampah</p>

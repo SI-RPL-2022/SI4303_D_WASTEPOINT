@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminDashboardController as AdminDashboard;
+use App\Http\Controllers\Admin\PengelolaanPenukaranProdukController as PengelolaanPenukaranProduk;
 use App\Http\Controllers\User\DashboardUserController as UserDashboard;
 use App\Http\Controllers\Admin\PengelolaanProdukPemilahController as PengelolaanProduk;
 use App\Http\Controllers\Admin\PengelolaanSampahController as PengelolaanSampah;
@@ -62,12 +63,20 @@ Route::middleware('auth')->group(function() {
         Route::get('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'detail']);
         Route::post('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'update']);
         Route::post('data-penukaran-sampah/delete/{id}', [PengelolaanSampah::class, 'delete']);
+
+        // pengelolaan data penukaran produk
+        Route::get('data-penukaran-produk', [PengelolaanPenukaranProduk::class, 'index'])->name('admin.data-penukaran-produk');
+        Route::get('data-penukaran-produk/detail/{id}', [PengelolaanPenukaranProduk::class, 'detail']);
+        Route::post('data-penukaran-produk/detail/{id}', [PengelolaanPenukaranProduk::class, 'update']);
+        Route::post('data-penukaran-produk/delete/{id}', [PengelolaanPenukaranProduk::class, 'delete']);
     });
 
     Route::prefix('user')->middleware('ensureRole:user')->group(function() {
         
         Route::get('/', [UserDashboard::class, 'index'])->name('user.dashboard-user');
         Route::get('penukaran-sampah/detail/{id}', [UserDashboard::class, 'sampah']);
+        Route::get('penukaran-produk/detail/{id}', [UserDashboard::class, 'produk']);
+        Route::post('penukaran-produk/detail/{id}', [UserDashboard::class, 'update']);
     });
 
     // logout

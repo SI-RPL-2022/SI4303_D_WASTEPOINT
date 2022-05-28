@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') {{ 'Detail produk - ' . $product->product_name }} @endsection
+@section('title', 'Detail Produk')
     
 @section('content')
     @if (session('exchange-success'))
@@ -97,7 +97,7 @@
                                     <label for="user" class="form-label fw-bolder">Data Pengguna</label>
                                     <div class="border rounded p-4 mb-2">
                                         <p class="mb-2">{{ Auth::user()->name }}</p>
-                                        <p class="mb-2">{{ Auth::user()->no_hp }}</p>
+                                        <p class="mb-2">{{ Auth::user()->nomorhp }}</p>
                                         <p class="mb-0">{{ Auth::user()->address }}</p>
                                     </div>
                                     <small>Ubah data pada menu <a href="" class="btn-link">edit profil</a> jika belum sesuai</small>

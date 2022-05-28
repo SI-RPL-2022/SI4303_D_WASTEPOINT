@@ -19,11 +19,6 @@
                 {{ session('create_success') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
-        @elseif (session('update_success'))
-            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                {{ session('update_success') }}
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            </div>
         @endif
 
         @if ($products->isEmpty())
@@ -50,7 +45,7 @@
                                     <tbody>
                                     @foreach ($products as $product)
                                         <tr>
-                                            <td>{{ $number++ }}</td>
+                                            <th scope="row">{{ $number++ }}</td>
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->price_point }}</td>
                                             <td>{{ $product->stock }}</td>

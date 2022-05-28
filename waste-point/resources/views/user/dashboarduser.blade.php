@@ -34,7 +34,7 @@
         </div>
     </section>
 
-    <section id="waste-exchange">
+    <section id="waste-exchange" class="mb-5">
         <h4 class="fw-bold mb-4"><i class="bi bi-trash3-fill text-green me-2"></i>Penukaran Sampah</h4>
         @if ($wastes->isEmpty())
             <p class="py-3 mb-0"><em>Belum ada riwayat penukaran sampah</em></p>
@@ -45,9 +45,9 @@
                         @if ($waste->status == 'Selesai')
                             <small class="text-success fw-bold py-2 px-3 rounded" style="background-color: rgb(25, 135, 84, 0.15)">{{ $waste->status }}</small>        
                         @elseif ($waste->status == 'Dalam penjemputan')
-                            <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(223, 230, 241)">{{ $waste->status }}</small>
+                            <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(108, 117, 125)">{{ $waste->status }}</small>
                         @else
-                            <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(220,53,69, 0.15)">{{ $waste->status }}</small>
+                            <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(220, 53, 69, 0.15)">{{ $waste->status }}</small>
                         @endif
                     </div>
                     <div class="container bg-gray px-4 py-3 rounded">
@@ -92,6 +92,57 @@
                 @endforeach 
                 <div class="pagination mt-3 text-center justify-content-end">
                     {{ $wastes->links() }}
+                </div>
+            </div>
+        @endif
+    </section>
+
+    <section id="waste-exchange">
+        <h4 class="fw-bold mb-4"><i class="bi bi-bag-check-fill text-green me-2"></i>Penukaran Produk Pemilahan Sampah</h4>
+        @if ($product_exchanges->isEmpty())
+            <p class="py-3 mb-0"><em>Belum ada riwayat penukaran produk</em></p>
+        @else
+            <div class="card border rounded p-4">
+                @foreach ($product_exchanges as $product_exchange)
+                    <div class="mb-3">
+                        @if ($product_exchange->status == 'Selesai')
+                            <small class="text-success fw-bold py-2 px-3 rounded" style="background-color: rgb(25, 135, 84, 0.15)">{{ $product_exchange->status }}</small>        
+                        @elseif ($product_exchange->status == 'Dalam pengiriman')
+                            <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(223, 230, 241)">{{ $product_exchange->status }}</small>
+                        @else
+                            <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(220,53,69, 0.15)">{{ $product_exchange->status }}</small>
+                        @endif
+                    </div>
+                    <div class="container bg-gray px-4 py-3 rounded">
+                        <div class="d-md-flex d-block justify-content-between align-items-end">
+                            <div class="mb-2">
+                                <small>{{ $product_exchange->created_at }}</small>
+                                <h6 class="mt-3">
+                                    <span class="fw-bold">{{ $product_exchange->quantity }}</span> Pcs
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dot" viewBox="0 0 16 16">
+                                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                                    </svg>
+                                    <span class="fw-bold">{{ $product_exchange->products->product_name }}</span>
+                                </h6>
+                                <div class="mt-3"> 
+                                    <img src="{{ asset('images/points.svg') }}">
+                                    <span class="fw-bold align-middle">{{ $product_exchange->total_points }}</span>
+                                </div>
+                            </div>
+                            <span>
+                                @if ($product_exchange->status != 'Selesai')
+                                    <a href="https://wa.me/08111761179" class="btn-link me-3">Hubungin admin</a>
+                                @endif
+                                <a href="user/penukaran-produk/detail/{{ $product_exchange->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
+                            </span>
+                        </div>
+                    </div>
+                    @if ($product_exchanges->count() > 1)
+                        <hr class="my-4"> 
+                    @endif
+                @endforeach 
+                <div class="pagination mt-3 text-center justify-content-end">
+                    {{ $product_exchanges->links() }}
                 </div>
             </div>
         @endif

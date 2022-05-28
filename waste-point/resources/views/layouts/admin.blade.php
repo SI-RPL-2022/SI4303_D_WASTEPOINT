@@ -39,6 +39,9 @@
                 <div id="content">
                     @include('components.topbar')
                         @yield('content')
+                        <a class="scroll-to-top rounded bg-green" href="#page-top">
+                            <i class="fas fa-angle-up"></i>
+                        </a>
                     @include('components.bottombar')
                 </div>
             </div>
@@ -53,13 +56,6 @@
 
         <!-- Custom scripts for all pages-->
         <script src="{{ asset('sb-admin/js/sb-admin-2.min.js') }}"></script>
-
-        <!-- Page level plugins -->
-        <script src="{{ asset('sb-admin/vendor/datatables/jquery.dataTables.min.js') }}"></script>
-        <script src="{{ asset('sb-admin/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
-
-        <!-- Page level custom scripts -->
-        <script src="{{ asset('sb-admin/js/demo/datatables-demo.js') }}"></script>
 
     </body>
 </html>

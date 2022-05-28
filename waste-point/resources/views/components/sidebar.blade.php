@@ -28,9 +28,9 @@
     </li>
 
     <!-- Nav Item - Data Produk -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-            <i class="bi bi-bag-check"></i>
+    <li class="nav-item {{ Request::is('admin/data-penukaran-produk', 'admin/data-penukaran-produk/*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ Route('admin.data-penukaran-produk') }}">
+            <i class="bi bi-bag-check-fill"></i>
             <span>Penukaran Produk</span>
         </a>
     </li>

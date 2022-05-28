@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use App\Models\User;
 use App\Models\Waste;
 use App\Http\Controllers\Controller;
+use App\Models\ProductExchange;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -13,13 +14,14 @@ class DashboardUserController extends Controller
     {
         $user = User::where('id', Auth::user()->id)->get();
         $wastes = Waste::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
+        $product_exchanges = ProductExchange::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->paginate(5);
         $kategori = ['Kertas', 'Plastik', 'Kaleng', 'Jelantah'];
 
         return view('user.dashboarduser', [
             'user' => $user,
             'wastes' => $wastes,
+            'product_exchanges' => $product_exchanges,
             'kategori'=> $kategori
-            
         ]);
     }
     
@@ -40,5 +42,30 @@ class DashboardUserController extends Controller
             }
         }
         
+    }
+
+    public function produk($id)
+    {
+        $product_exchanges = ProductExchange::where('id', $id)->get();
+        $status = ['Dalam proses', 'Dalam pengiriman', 'Selesai'];
+        
+        foreach ($product_exchanges as $product_exchange) {
+            if ($product_exchange->user_id == auth()->user()->id) {
+                return view('user.detail_penukaran_produk', [
+                    'product_exchanges' => $product_exchanges,
+                    'status' => $status,
+                ]);
+            } else {
+                return view('not-found');
+            }
+        }
+    }
+
+    public function update($id)
+    {
+        $selesai = 'Selesai';
+        $product_exchange = ProductExchange::where('id', $id)->first();
+        $product_exchange->update(['status' => $selesai]);
+        return back()->with('update_success', 'Penukaran produk telah selesai!');
     }
 }
