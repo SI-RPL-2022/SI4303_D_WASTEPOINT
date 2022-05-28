@@ -36,14 +36,14 @@
                                 <tbody>
                                     @foreach ($wastes as $waste)
                                         <tr>
-                                            <td>{{ $number++ }}</td>
+                                            <th scope="row">{{ $number++ }}</th>
                                             <td>{{ $waste->users->name }}</td>
                                             <td>{{ $waste->weight }}</td>
                                             <td>{{ $waste->category }}</td>
                                             @if ($waste->status == 'Selesai')
                                                 <td class="text-success">{{ $waste->status }}</td>        
                                             @elseif ($waste->status == 'Dalam penjemputan')
-                                                <td class="text-secondary">{{ $waste->status }}</td>
+                                                <td class="text-primary">{{ $waste->status }}</td>
                                             @else
                                                 <td class="text-danger">{{ $waste->status }}</td>
                                             @endif

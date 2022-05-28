@@ -81,12 +81,12 @@ class PengelolaanProdukPemilahController extends Controller
                 'description' => $request->description,
             ]);
         }
-        return redirect('/admin/data-produk-pemilahan')->with('update_success', 'Update data produk berhasil!');
+        return back()->with('update_success', 'Update data produk berhasil!');
     }
 
     public function delete($id)
     {
         Product::where('id', $id)->delete();
-        return redirect('/admin/data-produk-pemilahan')->with('update_success', 'data produk berhasil dihapus');
+        return back()->with('update_success', 'data produk berhasil dihapus');
     }
 }
