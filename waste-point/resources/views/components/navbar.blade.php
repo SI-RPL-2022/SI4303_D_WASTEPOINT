@@ -30,7 +30,7 @@
                         </li>
                         <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{{ Route('konversi-poin') }}">
                                 <i class="bi bi-cash-coin me-2"></i> Konversi Poin
                             </a>
                         </li>

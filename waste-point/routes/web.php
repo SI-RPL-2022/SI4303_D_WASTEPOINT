@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\LogoutController as Logout;
 use App\Http\Controllers\Auth\RegisterController as Register;
 use App\Http\Controllers\Penukaran\SampahController as Sampah;
 use App\Http\Controllers\Penukaran\ProdukController as Produk;
+use App\Http\Controllers\Penukaran\KonversiPoinController as KonversiPoin;
 use App\Http\Controllers\HomeController as Home;
 use Illuminate\Support\Facades\Route;
 
@@ -46,6 +47,11 @@ Route::middleware('guest')->group(function() {
 
 // only users logged in
 Route::middleware('auth')->group(function() {
+    // konversi poin
+    Route::get('konversi-poin', [KonversiPoin::class, 'index'])->name('konversi-poin');
+    Route::post('konversi-poin', [KonversiPoin::class, 'store']);
+    Route::get('konversi-poin/success/{id}', [KonversiPoin::class, 'success']);
+    
     // admin
     Route::prefix('admin')->middleware('ensureRole:admin')->group(function() {
         Route::get('/', [AdminDashboard::class, 'index'])->name('admin.dashboard');
