@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="sticky-footer bg-white mt-auto">
+<footer class="sticky-footer bg-transparent mt-auto">
     <div class="container">
         <div class="copyright text-center my-4">
             <span>Copyright &copy; Waste Point 2022</span>
