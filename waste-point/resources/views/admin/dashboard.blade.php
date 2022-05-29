@@ -113,7 +113,7 @@
                                 <a href="{{ Route('admin.data-penukaran-sampah') }}" class="btn btn-green ms-auto">Lihat Data</a>
                             </li>
                             <li class="list-group-item d-flex align-items-center">
-                                Penukaran Produk @if ($update_product < 1) <span class="text-green ps-1">(0)</span> @else <span class="text-danger ps-1">({{ $update_product }})</span> @endif
+                                Penukaran Produk @if ($update_product_exchange < 1) <span class="text-green ps-1">(0)</span> @else <span class="text-danger ps-1">({{ $update_product_exchange }})</span> @endif
                                 <a href="{{ Route('admin.data-penukaran-produk') }}" class="btn btn-green ms-auto">Lihat Data</a>
                             </li>
                         </ul>

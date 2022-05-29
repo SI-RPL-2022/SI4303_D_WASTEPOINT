@@ -45,7 +45,7 @@
                         @if ($waste->status == 'Selesai')
                             <small class="text-success fw-bold py-2 px-3 rounded" style="background-color: rgb(25, 135, 84, 0.15)">{{ $waste->status }}</small>        
                         @elseif ($waste->status == 'Dalam penjemputan')
-                            <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(108, 117, 125)">{{ $waste->status }}</small>
+                            <small class="text-primary fw-bold py-2 px-3 rounded" style="background-color: rgb(223, 230, 241)">{{ $waste->status }}</small>
                         @else
                             <small class="text-danger fw-bold py-2 px-3 rounded" style="background-color: rgb(220, 53, 69, 0.15)">{{ $waste->status }}</small>
                         @endif

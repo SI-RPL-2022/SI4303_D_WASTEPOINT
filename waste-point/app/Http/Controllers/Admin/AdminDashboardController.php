@@ -24,7 +24,7 @@ class AdminDashboardController extends Controller
         $jelantah = Waste::where('category', 'Jelantah')->where('status', 'Selesai')->sum('weight');
 
         $update_waste = Waste::where('status', 'Belum diverifikasi')->count();
-        $update_product = ProductExchange::where('status', 'Dalam proses')->count();
+        $update_product_exchange = ProductExchange::where('status', 'Dalam proses')->count();
 
         return view('admin.dashboard', [
             'weight_total' => $weight_total,
@@ -35,7 +35,7 @@ class AdminDashboardController extends Controller
             'kaleng' => $kaleng,
             'jelantah' => $jelantah,
             'update_waste' => $update_waste,
-            'update_product' => $update_product,
+            'update_product_exchange' => $update_product_exchange,
         ]);    
     }
 }
