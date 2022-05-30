@@ -6,7 +6,7 @@
             <h2 class="fw-bold mb-2">Halo, {{ Auth::user()->name }} !</h2>
             <div class="d-md-flex align-items-center justify-content-between">
                 <p class="mb-md-0 mb-2">Tukarkan sampahmu hanya dari rumah dan dapatkan poin dengan cepat.</p>
-                <a href="" class="d-md-block d-md-inline-block btn btn-yellow py-2 px-3 rounded">Konversi Poin</a>
+                <a href="" class="d-md-block d-md-inline-block btn btn-yellow py-2 px-3 rounded">Riwayat konversi poin</a>
             </div>
             <hr class="mt-3 mb-4">
             <div class="card">
@@ -18,7 +18,7 @@
                                 <img src="{{ asset('images/points.svg') }}" alt="point-logo">
                             </div>
                             <hr class="mb-3">
-                            <h3 class="text-yellow fw-bold">4830 <span class="text-dark opacity-75 fs-6">Poin</span></h3> 
+                            <h3 class="text-yellow fw-bold">{{ Auth::user()->waste_poins }} <span class="text-dark opacity-75 fs-6">Poin</span></h3> 
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center justify-content-between mb-2">
@@ -26,7 +26,7 @@
                                 <img src="{{ asset('images/trash.svg') }}" alt="trash-logo">
                             </div>
                             <hr class="mb-3">
-                            <h3 class="text-green fw-bold">49 <span class="text-dark opacity-75 fs-6">Kilogram</span></h3> 
+                            <h3 class="text-green fw-bold">{{ $weight }} <span class="text-dark opacity-75 fs-6">Kilogram</span></h3> 
                         </div>
                     </div>
                 </div>

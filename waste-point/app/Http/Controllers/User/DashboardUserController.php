@@ -15,12 +15,14 @@ class DashboardUserController extends Controller
         $user = User::where('id', Auth::user()->id)->get();
         $wastes = Waste::where('user_id', Auth::user()->id)->orderBy('id', 'desc')->paginate(5);
         $product_exchanges = ProductExchange::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->paginate(5);
+        $weight = Waste::where('user_id', auth()->user()->id)->where('status', 'selesai')->sum('weight');
         $kategori = ['Kertas', 'Plastik', 'Kaleng', 'Jelantah'];
 
         return view('user.dashboarduser', [
             'user' => $user,
             'wastes' => $wastes,
             'product_exchanges' => $product_exchanges,
+            'weight' => $weight,
             'kategori'=> $kategori
         ]);
     }
