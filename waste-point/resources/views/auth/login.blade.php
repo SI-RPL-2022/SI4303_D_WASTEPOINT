@@ -27,16 +27,17 @@
                 <div class="mb-2">
                     <label for="password" class="form-label fw-bolder">Password</label>
                     <input type="password" class="form-control" id="password" name="password" placeholder="Masukkan password" value="{{ old('password') }}">
+                    <i class="fa-solid fa-eye-slash" id="togglePassword" onclick="togglePassword()"></i>
                     @error('password')
                         <div class="text-danger mt-2">
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
-                <div class="mb-5">
-                    <div class="form-check float-end mb-4">
-                        <input class="form-check-input" type="checkbox" value="" id="show_pass" onclick="showPassword()">
-                        <label class="form-check-label" for="show_pass">Lihat password</label>
+                <div class="float-start">
+                    <div class="form-check mb-4">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember">
+                        <label class="form-check-label" for="remember">Remember Me</label>
                     </div>
                 </div>
                 <div class="mb-4">

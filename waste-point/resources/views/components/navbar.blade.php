@@ -3,7 +3,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <div class="container">
         <a class="navbar-brand" href="/">
-            <img src="{{ asset('images/nav-logo.svg') }}" width="105">
+            <img src="{{ asset('images/nav-logo.svg') }}">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,21 +17,23 @@
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Penukaran
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdownMenuLink">
                         <li>
-                            <a class="dropdown-item" href="{{ Route('penukaran-sampah') }}">
+                            <a class="dropdown-item py-2" href="{{ Route('penukaran-sampah') }}">
                                 <i class="bi bi-trash3 me-2"></i> Sampah
+                                <p class="ps-4 mb-0 opacity-50"><small>Tukarkan sampah dapatkan poin.</small></p>
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ Route('penukaran-produk') }}">
+                            <a class="dropdown-item py-2" href="{{ Route('penukaran-produk') }}">
                                 <i class="bi bi-cart4 me-2"></i> Produk Pemilahan Sampah
+                                <p class="ps-4 mb-0 opacity-50"><small>Tukarkan poin produk pemilahan sampah.</small></p>
                             </a>
                         </li>
-                        <li><hr class="dropdown-divider"></li>
                         <li>
-                            <a class="dropdown-item" href="{{ Route('konversi-poin') }}">
+                            <a class="dropdown-item py-2" href="{{ Route('konversi-poin') }}">
                                 <i class="bi bi-cash-coin me-2"></i> Konversi Poin
+                                <p class="ps-4 mb-0 opacity-50"><small>Konversi poin jadi uang melalui rekening.</small></p>
                             </a>
                         </li>
                     </ul>
@@ -40,13 +42,13 @@
                     <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Informasi
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">Apa itu Waste Point?</a></li>
-                        <li><a class="dropdown-item" href="#">Cerita Tentang Kami</a></li>
+                    <ul class="dropdown-menu py-0" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item py-2" href="#">Apa itu Waste Point?</a></li>
+                        <li><a class="dropdown-item py-2" href="#">Cerita Tentang Kami</a></li>
                     </ul>
                 </li>
                 <li class="nav-item line">
-                    <a class="nav-link active" href="#">Blog</a>
+                    <a class="nav-link active py-2" href="#">Blog</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -58,30 +60,32 @@
                             @if (!Auth::user()->is_admin)
                                 @if (Auth::user()->avatar == null)
                                 <span class="rounded-circle bg-white">
-                                    <img src="{{ asset('images/avatar-default.png') }}" alt="avatar" class="avatar rounded-circle border">
+                                    <img src="{{ asset('images/avatar-default.png') }}" alt="avatar" class="avatar rounded-circle">
                                 </span>
                                 @else
-                                    {{-- kalau udah ada avatar --}}
+                                    <span class="rounded-circle bg-white">
+                                        <img src="{{ asset('avatars/'.Auth::user()->avatar) }}" alt="avatar" class="avatar rounded-circle">
+                                    </span>
                                 @endif
                             @endif
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end py-0" aria-labelledby="navbarDropdown">
                                 @if (!Auth::user()->is_admin)
                                     <li>
-                                        <a class="dropdown-item" href="{{ Route('user.dashboard-user') }}">
+                                        <a class="dropdown-item py-2" href="{{ Route('user.dashboard-user') }}">
                                             <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
                                             Dashboard
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="">
+                                        <a class="dropdown-item py-2" href="{{ Route('user.edit-profil') }}">
                                             <i class="bi bi-gear me-2"></i>
                                             Edit Profil
                                         </a>
                                     </li>
                                 @else
                                     <li>
-                                        <a class="dropdown-item" href="{{ Route('admin.dashboard') }}">
+                                        <a class="dropdown-item py-2" href="{{ Route('admin.dashboard') }}">
                                             <i class="bi bi-layout-text-sidebar-reverse me-2"></i>
                                             Dashboard
                                         </a>
@@ -89,7 +93,7 @@
                                 @endif
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
-                                    <a href="#" class="dropdown-item text-danger" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
+                                    <a href="#" class="dropdown-item text-danger py-2" type="submit" data-bs-toggle="modal" data-bs-target="#logoutModal">
                                         <i class="fa fa-sign-out me-2" aria-hidden="true"></i> 
                                         Logout
                                     </a>
@@ -126,3 +130,4 @@
         </div>
     </div>
 </div>
+<script src="{{ asset('js/ShadowOnScroll.js') }}"></script>

@@ -16,15 +16,16 @@ class LoginController extends Controller
 
     public function authenticate(Request $request)
     {
+        // remember me check
+        $remember_me = $request->remember ? true : false;
+
         $credentials = $request->validate([
             'email' => ['required', 'email:dns'],
             'password' => ['required']
         ]);
-    
-        if (Auth::attempt($credentials)) {
-            $request->session()->regenerate();
-            
-            if (Auth::user()->is_admin){
+
+        if (Auth::attempt($credentials, $remember_me)) {
+            if (Auth::user()->is_admin) {
                 return redirect('/admin');
             }
             return redirect(RouteServiceProvider::HOME)->with('auth', 'Selamat Datang Kembali ' . Auth::user()->name . '!');

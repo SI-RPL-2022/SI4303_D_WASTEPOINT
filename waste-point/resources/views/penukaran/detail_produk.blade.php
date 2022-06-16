@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Detail Produk')
+@section('title') {{ 'Detail Produk - '.$product->product_name }} @endsection
     
 @section('content')
     @if (session('exchange-success'))
@@ -100,7 +100,7 @@
                                         <p class="mb-2">{{ Auth::user()->nomorhp }}</p>
                                         <p class="mb-0">{{ Auth::user()->address }}</p>
                                     </div>
-                                    <small>Ubah data pada menu <a href="" class="btn-link">edit profil</a> jika belum sesuai</small>
+                                    <small>Ubah data pada menu <a href="{{ Route('user.edit-profil') }}" class="btn-link">edit profil</a> jika belum sesuai</small>
                                 </div>
                                 <div class="mb-4">
                                     <label for="postal_code" class="form-label fw-bolder">Kode pos</label>
@@ -131,7 +131,24 @@
                                     @enderror
                                 </div>
                                 <div class="mb-4">
-                                    <button type="submit" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange">Pesan produk</button>                            
+                                    <button type="button" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange" data-bs-toggle="modal" data-bs-target="#productExchangeModal">Pesan produk</button>                            
+                                </div>
+                                <div class="modal fade" id="productExchangeModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="productExchangeModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title fw-bold" id="productExchangeModalLabel">Konfirmasi Penukaran Produk</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah Anda yakin ingin melakukan penukaran produk <span class="fw-bold">{{ $product->product_name }}</span> dengan poin sebesar <span class="fw-bold">{{ $product->price_point }} WastePoin</span>? Anda tidak dapat melakukan pembatalan penukaran.
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-green">Tukar produk</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>

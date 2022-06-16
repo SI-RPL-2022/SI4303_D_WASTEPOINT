@@ -141,7 +141,24 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <button type="submit" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange">Konversi poin</button>                            
+                        <button type="button" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange" data-bs-toggle="modal" data-bs-target="#pointConvertModal">Konversi poin</button>                            
+                    </div>
+                    <div class="modal fade" id="pointConvertModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="pointConvertModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title fw-bold" id="pointConvertModalLabel">Konfirmasi Konversi Poin</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin melakukan penukaran poin? Anda tidak dapat melakukan pembatalan konversi poin.
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                    <button type="submit" class="btn btn-green">konversi poin</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

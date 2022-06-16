@@ -12,6 +12,7 @@ use App\Http\Controllers\Penukaran\SampahController as Sampah;
 use App\Http\Controllers\Penukaran\ProdukController as Produk;
 use App\Http\Controllers\Penukaran\KonversiPoinController as KonversiPoin;
 use App\Http\Controllers\HomeController as Home;
+use App\Http\Controllers\User\UpdateProfilController as UpdateProfil;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -27,8 +28,8 @@ use Illuminate\Support\Facades\Route;
 
 // free access
 Route::get('/', [Home::class, 'index']);
-Route::get('/penukaran-sampah',[Sampah::class, 'index'])->name('penukaran-sampah');
-Route::post('/penukaran-sampah',[Sampah::class, 'store'])->name('penukaran-sampah');
+Route::get('/penukaran-sampah', [Sampah::class, 'index'])->name('penukaran-sampah');
+Route::post('/penukaran-sampah', [Sampah::class, 'store'])->name('penukaran-sampah');
 
 // penukaran produk
 Route::get('penukaran-produk', [Produk::class, 'index'])->name('penukaran-produk');
@@ -37,7 +38,7 @@ Route::get('penukaran-produk/{slug}', [Produk::class, 'detail']);
 Route::post('penukaran-produk/{slug}', [Produk::class, 'store']);
 
 // only guest for access
-Route::middleware('guest')->group(function() {
+Route::middleware('guest')->group(function () {
     //register & login
     Route::get('register', [Register::class, 'index'])->name('register');
     Route::post('register', [Register::class, 'store'])->name('register');
@@ -46,16 +47,16 @@ Route::middleware('guest')->group(function() {
 });
 
 // only users logged in
-Route::middleware('auth')->group(function() {
+Route::middleware('auth')->group(function () {
     // konversi poin
     Route::get('konversi-poin', [KonversiPoin::class, 'index'])->name('konversi-poin');
     Route::post('konversi-poin', [KonversiPoin::class, 'store']);
     Route::get('konversi-poin/success/{id}', [KonversiPoin::class, 'success']);
-    
+
     // admin
-    Route::prefix('admin')->middleware('ensureRole:admin')->group(function() {
+    Route::prefix('admin')->middleware('ensureRole:admin')->group(function () {
         Route::get('/', [AdminDashboard::class, 'index'])->name('admin.dashboard');
-        
+
         // pengelolaan data produk
         Route::get('data-produk-pemilahan', [PengelolaanProduk::class, 'index'])->name('admin.data-produk-pemilahan');
         Route::get('data-produk-pemilahan/create', [PengelolaanProduk::class, 'create']);
@@ -63,7 +64,7 @@ Route::middleware('auth')->group(function() {
         Route::get('data-produk-pemilahan/detail/{id}', [PengelolaanProduk::class, 'detail']);
         Route::post('data-produk-pemilahan/detail/{id}', [PengelolaanProduk::class, 'update']);
         Route::post('data-produk-pemilahan/delete/{id}', [PengelolaanProduk::class, 'delete']);
-    
+
         // pengelolaan data penukaran sampah
         Route::get('data-penukaran-sampah', [PengelolaanSampah::class, 'index'])->name('admin.data-penukaran-sampah');
         Route::get('data-penukaran-sampah/detail/{id}', [PengelolaanSampah::class, 'detail']);
@@ -77,14 +78,24 @@ Route::middleware('auth')->group(function() {
         Route::post('data-penukaran-produk/delete/{id}', [PengelolaanPenukaranProduk::class, 'delete']);
     });
 
-    Route::prefix('user')->middleware('ensureRole:user')->group(function() {
-        
+    Route::prefix('user')->middleware('ensureRole:user')->group(function () {
+
         Route::get('/', [UserDashboard::class, 'index'])->name('user.dashboard-user');
         Route::get('penukaran-sampah/detail/{id}', [UserDashboard::class, 'sampah']);
         Route::get('penukaran-produk/detail/{id}', [UserDashboard::class, 'produk']);
         Route::post('penukaran-produk/detail/{id}', [UserDashboard::class, 'update']);
+        Route::get('edit-profil', [UpdateProfil::class, 'index'])->name('user.edit-profil');
+        Route::post('edit-profil', [UpdateProfil::class, 'update'])->name('user.edit-profil');
     });
 
     // logout
     Route::post('logout', Logout::class)->name('logout');
 });
+
+// not found
+Route::any(
+    '{query}',
+    function () {
+        return view('not-found');
+    }
+)->where('query', '.*');

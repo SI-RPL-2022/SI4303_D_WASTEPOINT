@@ -11,22 +11,34 @@
     border-bottom: 1px solid #dedede;
 }
 
-.line::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2.5px;
-    background: #32854D;
-    transition: width .4s;
+.navbar-brand img {
+    width: 105px;
 }
 
-.line:hover::after {
-    width: 100%;
+.line:hover {
+    border-radius: 4px;
+    background-color: #f2f2f2;
+    transition: all 0.2s ease;
+}
+
+.nav-scroll {
+    box-shadow: 1px 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-divider {
+    margin: 0;
 }
 
 a.dropdown-item:hover {
     background-color: #f2f2f2;
     color: black;
+}
+
+a.dropdown-toggle::after {
+    border: none !important;
+    font: normal normal normal 14px/1 FontAwesome;
+    content: "\f107" !important;
+    vertical-align: 0;
 }
 
 .nav-item i.bi,
@@ -150,12 +162,27 @@ footer hr {
     border: 1px solid #dedede;
 }
 
-.auth a.text-green:hover {
+a.text-green:hover {
     color: #32854d;
 }
 
+i#togglePassword {
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 17px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    float: right;
+    margin-top: -27.5px;
+    margin-right: 12px;
+}
+
 .avatar {
-    width: 32px;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    border: 2px solid #79ba2a;
+    padding: 2px;
 }
 
 .jumbotron .card {
@@ -209,12 +236,12 @@ footer hr {
 }
 
 .page-link {
-    color: #32854D;
+    color: #32854d;
 }
 
 .page-item.active .page-link {
-    background-color: #32854D;
-    border: #32854D;
+    background-color: #32854d;
+    border: #32854d;
 }
 
 .detail-sampah {
@@ -227,10 +254,11 @@ footer hr {
 
 .nav-tabs .nav-link,
 .nav-tabs .nav-link.active {
-    color: #32854D !important;
+    color: #32854d !important;
 }
 
-.partner {
+.partner,
+.avatar-update {
     width: 120px;
 }
 
@@ -254,13 +282,23 @@ footer hr {
         width: 24%;
     }
 
+    .navbar {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .navbar-brand img {
+        width: 90px;
+    }
+
     #blog-view .card,
     #managed.card,
     .auth,
     .detail-sampah,
     .detail-produk,
     .exchange,
-    .admin-sampah {
+    .admin-sampah,
+    .avatar-update {
         width: 100%;
     }
 }

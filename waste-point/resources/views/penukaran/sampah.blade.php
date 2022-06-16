@@ -174,7 +174,24 @@
                             @enderror
                         </div>
                         <div class="mb-4">
-                            <button type="submit" class="btn btn-green w-20 py-2 px-4 fw-bold rounded">Input data sampah</button>                            
+                            <button type="button" class="btn btn-green w-20 py-2 px-4 fw-bold rounded exchange" data-bs-toggle="modal" data-bs-target="#wasteInputModal"">Input data sampah</button>                            
+                        </div>
+                        <div class="modal fade" id="wasteInputModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="wasteInputModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title fw-bold" id="wasteInputModalLabel">Konfirmasi Data Sampah</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Pastikan data sampah yang Anda masukkan sudah sesuai. Setelah data sampah diinput dan diterima oleh sistem kami, Anda tidak dapat melakukan perubahan pada data sampah.
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                                        <button type="submit" class="btn btn-green">Input data sampah</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>

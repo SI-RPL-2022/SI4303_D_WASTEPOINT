@@ -1,7 +1,8 @@
 @extends('layouts.user')
 
-@section('content')
+@section('title', 'Detail Penukaran Sampah')
 
+@section('content')
     <div class="bg-green rounded p-3 text-center my-4">
         <h2 class="fw-bold mb-0">Detail Penukaran Sampah</h2>
     </div>

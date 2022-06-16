@@ -17,7 +17,7 @@
         <!-- Page Icon -->
         <link rel="icon" href="{{ asset('images/icon-logo.png') }}" type="image/icon type">
 
-        <title>@yield('title')</title>
+        <title>@yield('title') | Waste Point</title>
     </head>
     <body class="d-flex flex-column min-vh-100">
         @include('components.navbar')

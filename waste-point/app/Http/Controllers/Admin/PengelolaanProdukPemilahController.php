@@ -18,7 +18,6 @@ class PengelolaanProdukPemilahController extends Controller
             'products' => $products,
             'number' => $number
         ]);
-
     }
 
     public function create()
@@ -35,10 +34,10 @@ class PengelolaanProdukPemilahController extends Controller
             'image' => ['required', 'image', 'mimes:png,jpg,jpeg,svg,PNG,JPG,JPEG', 'max:2048'],
             'description' => ['required']
         ]);
-        
-        $product_image = time().'.'.$request->image->extension();
+
+        $product_image = time() . '.' . $request->image->extension();
         $request->image->move(public_path('products'), $product_image);
-        
+
         Product::create([
             'product_name' => $request->product_name,
             'slug' => SlugService::createSlug(Product::class, 'slug', $request->product_name),
@@ -61,9 +60,9 @@ class PengelolaanProdukPemilahController extends Controller
     public function update(Request $request, $id)
     {
         if ($request->image != null) {
-            $product_image = time().'.'.$request->image->extension();
+            $product_image = time() . '.' . $request->image->extension();
             $request->image->move(public_path('products'), $product_image);
-        
+
             Product::where('id', $id)->update([
                 'product_name' => $request->product_name,
                 'slug' => SlugService::createSlug(Product::class, 'slug', $request->product_name),

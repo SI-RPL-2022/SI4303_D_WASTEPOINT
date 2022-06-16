@@ -11,11 +11,13 @@ class LogoutController extends Controller
     public function __invoke()
     {
         Auth::logout();
-    
+
+        request()->session()->flush();
+
         request()->session()->invalidate();
-    
+
         request()->session()->regenerateToken();
-        
+
         return redirect(RouteServiceProvider::HOME);
     }
 }

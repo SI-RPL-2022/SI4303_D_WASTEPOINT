@@ -1,5 +1,7 @@
 @extends('layouts.user')
 
+@section('title', 'My Dashboard')
+
 @section('content')
     <section id="main-profile" class="mb-5">
         <div class="jumbotron bg-green rounded p-4 mt-4">
