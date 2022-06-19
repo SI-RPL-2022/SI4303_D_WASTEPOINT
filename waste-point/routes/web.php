@@ -84,6 +84,8 @@ Route::middleware('auth')->group(function () {
         Route::get('penukaran-sampah/detail/{id}', [UserDashboard::class, 'sampah']);
         Route::get('penukaran-produk/detail/{id}', [UserDashboard::class, 'produk']);
         Route::post('penukaran-produk/detail/{id}', [UserDashboard::class, 'update']);
+        Route::get('riwayat-konversi-poin', [UserDashboard::class, 'konversi_poin'])->name('riwayat-konversi-poin');
+        Route::get('riwayat-konversi-poin/detail/{id}', [UserDashboard::class, 'detail_konversi_poin']);
         Route::get('edit-profil', [UpdateProfil::class, 'index'])->name('user.edit-profil');
         Route::post('edit-profil', [UpdateProfil::class, 'update'])->name('user.edit-profil');
     });

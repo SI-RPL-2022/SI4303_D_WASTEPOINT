@@ -8,7 +8,7 @@
             <h2 class="fw-bold mb-2">Halo, {{ Auth::user()->name }} !</h2>
             <div class="d-md-flex align-items-center justify-content-between">
                 <p class="mb-md-0 mb-2">Tukarkan sampahmu hanya dari rumah dan dapatkan poin dengan cepat.</p>
-                <a href="" class="d-md-block d-md-inline-block btn btn-yellow py-2 px-3 rounded">Riwayat konversi poin</a>
+                <a href="{{ Route('riwayat-konversi-poin') }}" class="d-md-block d-md-inline-block btn btn-yellow py-2 px-3 rounded">Riwayat konversi poin</a>
             </div>
             <hr class="mt-3 mb-4">
             <div class="card">

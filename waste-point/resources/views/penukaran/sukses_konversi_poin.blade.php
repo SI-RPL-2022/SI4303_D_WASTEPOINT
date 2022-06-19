@@ -42,6 +42,7 @@
                         <p class="opacity-75 mb-3">Nomor Rekening</p>
                         <p class="mb-md-2 mb-4">{{ $conversion->account_number }}</p>
                     </div>
+                    <hr class="mt-0 hr-dashboard">
                     <div class="d-md-flex d-block justify-content-between">
                         <p class="opacity-75 mb-3">Total Hasil Konversi</p>
                         <p class="mb-md-2 mb-4">Rp{{ $conversion->conversion_result }}</p>
