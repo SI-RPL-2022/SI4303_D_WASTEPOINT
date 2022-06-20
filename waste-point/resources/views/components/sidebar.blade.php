@@ -52,8 +52,8 @@
     </li>
     
     <!-- Nav Item - Artikel -->
-    <li class="nav-item">
-        <a class="nav-link" href="charts.html">
+    <li class="nav-item {{ Request::is('admin/data-blog', 'admin/data-blog/*') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ Route('admin.data-blog') }}">
             <i class="bi bi-book"></i>
             <span>Data Blog</span>
         </a>

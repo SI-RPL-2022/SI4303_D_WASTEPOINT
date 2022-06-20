@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminDashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\PengelolaanPenukaranProdukController as PengelolaanPenukaranProduk;
+use App\Http\Controllers\Admin\PengelolaanBlogController as PengelolaanBlog;
 use App\Http\Controllers\User\DashboardUserController as UserDashboard;
 use App\Http\Controllers\Admin\PengelolaanProdukPemilahController as PengelolaanProduk;
 use App\Http\Controllers\Admin\PengelolaanSampahController as PengelolaanSampah;
@@ -76,6 +77,15 @@ Route::middleware('auth')->group(function () {
         Route::get('data-penukaran-produk/detail/{id}', [PengelolaanPenukaranProduk::class, 'detail']);
         Route::post('data-penukaran-produk/detail/{id}', [PengelolaanPenukaranProduk::class, 'update']);
         Route::post('data-penukaran-produk/delete/{id}', [PengelolaanPenukaranProduk::class, 'delete']);
+
+        // pengelolaan data blog
+        Route::get('data-blog', [PengelolaanBlog::class, 'index'])->name('admin.data-blog');
+        Route::get('data-blog/create', [PengelolaanBlog::class, 'create']);
+        Route::post('data-blog/create', [PengelolaanBlog::class, 'store']);
+        Route::get('data-blog/detail/{id}', [PengelolaanBlog::class, 'detail']);
+        Route::post('data-blog/detail/{id}', [PengelolaanBlog::class, 'update']);
+        Route::post('data-blog/delete/{id}', [PengelolaanBlog::class, 'delete']);
+
     });
 
     Route::prefix('user')->middleware('ensureRole:user')->group(function () {
