@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Waste;
 use App\Http\Controllers\Controller;
 use App\Models\ProductExchange;
+use App\Models\PointConvert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -69,5 +70,26 @@ class DashboardUserController extends Controller
         $product_exchange = ProductExchange::where('id', $id)->first();
         $product_exchange->update(['status' => $selesai]);
         return back()->with('update_success', 'Penukaran produk telah selesai!');
+    }
+
+    public function konversi_poin()
+    {
+        $conversions = PointConvert::where('user_id', auth()->user()->id)->orderBy('id', 'desc')->paginate(10);
+        return view('user.riwayat_konversi_poin', [
+            'conversions' => $conversions,
+        ]);
+    }
+
+    public function detail_konversi_poin($id)
+    {
+        $conversion = PointConvert::where('id', $id)->first();
+
+        if ($conversion->user_id == auth()->user()->id) {
+            return view('user.detail_konversi_poin', [
+                'conversion' => $conversion,
+            ]);
+        } else {
+            return view('not-found');
+        }
     }
 }

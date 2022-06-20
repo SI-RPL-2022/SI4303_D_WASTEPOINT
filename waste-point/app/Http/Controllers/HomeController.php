@@ -1,13 +1,23 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Product;
+use App\Models\User;
+use App\Models\Waste;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('home');
+        $count_products = Product::all()->count();
+        $count_wastes = Waste::where('status', 'Selesai')->sum('weight');
+        $count_users = User::where('is_admin', false)->count();
+        return view('home', [
+            'count_products' => $count_products,
+            'count_wastes' => $count_wastes,
+            'count_users' => $count_users
+        ]);
     }
+
 }

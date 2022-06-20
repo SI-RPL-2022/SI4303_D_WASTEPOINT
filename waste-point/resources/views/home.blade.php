@@ -40,15 +40,15 @@
                 <p>Daerah terjangkau</p>
             </div>
             <div class="col-md-3 col-6 mb-md-0 mb-3">
-                <h2 class="fw-bold text-green">40+</h2>
+                <h2 class="fw-bold text-green">{{ $count_products }}</h2>
                 <p>Produk pemilahan</p>
             </div>
             <div class="col-md-3 col-6">
-                <h2 class="fw-bold text-green">120kg</h2>
+                <h2 class="fw-bold text-green">{{ $count_wastes }} kg</h2>
                 <p>Sampah ditukar</p>
             </div>
             <div class="col-md-3 col-6">
-                <h2 class="fw-bold text-green">800+</h2>
+                <h2 class="fw-bold text-green">{{ $count_users }}+</h2>
                 <p>Pengguna aktif</p>
             </div>
         </div>
