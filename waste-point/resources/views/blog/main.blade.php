@@ -33,6 +33,8 @@
                             <p class="card-text text-muted"><small>{{ $blog->created_at }}</small></p>
                             <h5 class="card-title fw-bold"><a href="{{ route('blog.read', $blog->slug) }}" class="text-decoration-none text-black">{{ $blog->judul }}</a></h5>
                             <p class="card-text">{{ $blog->excerpt }}</p>
+                        </div>
+                        <div class="card-footer py-3">
                             <a href="{{ route('blog.read', $blog->slug) }}" class="text-decoration-none">
                                 <span class="text-green">Selengkapnya</span>
                                 <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
