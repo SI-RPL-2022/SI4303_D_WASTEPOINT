@@ -35,8 +35,8 @@
 
         <div id="wrapper">
             @include('components.sidebar')
-            <div id="content-wrapper" class="d-flex flex-column min-vh-100">
-                <div id="content">
+            <div id="content-wrapper">
+                <div id="content" class="d-flex flex-column min-vh-100">
                     @include('components.topbar')
                         @yield('content')
                         <a class="scroll-to-top rounded bg-green" href="#page-top">

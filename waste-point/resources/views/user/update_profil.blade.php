@@ -36,7 +36,7 @@
                             </section>
                         </div>
                         <div class="col-md-8 col-12">
-                            <section id="name" class="mb-3">
+                            <section id="nama" class="mb-3">
                                 <label for="name" class="fw-bold form-label">Nama Lengkap</label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan nama lengkap" value="{{ Auth::user()->name }}">
                                 @error('name')
@@ -45,12 +45,12 @@
                                     </div>
                                 @enderror
                             </section>
-                            <section id="name" class="mb-3">
+                            <section id="email" class="mb-3">
                                 <label for="email" class="fw-bold form-label">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email" value="{{ Auth::user()->email }}" disabled>
                                 <p class="mt-2 text-muted"><small>Silahkan hubungi <a href="https://wa.me/08111761179" class="text-green hover-none">admin</a> jika ingin mengubah email Anda.</small></p>
                             </section>
-                            <section id="name" class="mb-3">
+                            <section id="nomor_hp" class="mb-3">
                                 <label for="nomorhp" class="fw-bold form-label">Nomor Hp</label>
                                 <input type="text" class="form-control" id="nomorhp" name="nomorhp" placeholder="Masukkan nomor hp" value="{{ Auth::user()->nomorhp }}">
                                 @error('nomorhp')
@@ -59,7 +59,7 @@
                                     </div>
                                 @enderror
                             </section>
-                            <section id="name" class="mb-4">
+                            <section id="alamat" class="mb-4">
                                 <label for="address" class="fw-bold form-label">Alamat</label>
                                 <textarea class="form-control" id="address" name="address" placeholder="Contoh: Jl. Rusa raya No. 71, Kel. Sertajaya, Kec. Cikarang Timur, Kab. Bekasi, Jawa Barat" rows="3">{{ Auth::user()->address }}</textarea>
                                 @error('address')
