@@ -86,8 +86,31 @@
                     </div>
                 </div>
             @elseif ($product_exchange->status == $status[2])
-                <a href="{{ Route('penukaran-produk') }}" class="btn btn-green rounded px-4">Lihat produk lainnya</a>
+                <a href="{{ Route('penukaran-produk') }}" class="btn btn-green-secondary rounded px-4" type="submit" data-bs-toggle="modal" data-bs-target="#RateModal">Beri Rating</a>
+                <a href="{{ Route('penukaran-produk') }}" class="btn btn-green rounded px-4">Lihat produk lainnya!!</a>
             @endif
         </div>
     @endforeach
+
+    
+<div class="modal fade" id="RateModal" tabindex="-1" aria-labelledby="RateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fw-bold" id="RateModalLabel">Konfirmasi Logout</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            Anda yakin ingin logout dari Waste Point?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                {{-- <form action="{{ route('logout') }}" method="POST"> --}}
+                    @csrf
+                  <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

@@ -12,9 +12,10 @@
         </div>
         
         <div class="row">
-            {{-- <div class="col-12"> --}}
-                {{-- <div id="managed" class="card shadow mb-4 mx-auto p-3"> --}}
-                    {{-- <div class="card-body"> --}}
+            <div class="col-12">
+                <div id="managed-blog" class="card shadow mb-4 p-3 mx-auto">
+                    <div class="card-body">
+                        <div class="row align-items-center">
                         <form action="" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="mb-3">
@@ -29,8 +30,8 @@
                            
                             <div class="mb-3">
                                 <label for="konten" class="form-label fw-bolder">Isi Konten</label>
-                                <input id="konten" type="hidden" name="konten">
-                                <trix-editor input="konten"></trix-editor>
+                                <input id="konten" type="hidden" name="konten" >
+                                <trix-editor input="konten" class="bg-white"></trix-editor>
                                 @error('konten')
                                     <div class="text-danger mt-2">
                                         {{ $message }}
@@ -48,7 +49,7 @@
                             </div>
                         
                             <div class="mb-2">
-                                <button type="submit" class="btn btn-green w-50 py-2 fw-bold rounded">Tambah Blog</button>
+                                <button type="submit" class="btn btn-green exchange py-2 fw-bold rounded ">Tambah Blog</button>
                             </div>
                             
                         </form>

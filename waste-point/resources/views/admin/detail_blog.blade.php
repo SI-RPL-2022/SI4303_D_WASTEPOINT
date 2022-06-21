@@ -19,9 +19,9 @@
         @endif
         
         <div class="row">
-            {{-- <div class="col-12"> --}}
-                {{-- <div id="detail" class="card shadow mb-4 p-3"> --}}
-                    {{-- <div class="card-body"> --}}
+            <div class="col-12">
+                <div id="managed-blog" class="card shadow mb-4 p-3 mx-auto">
+                    <div class="card-body">
                         <div class="row align-items-center">
                             @foreach ($blogs as $blog)
                                 <div class="col-lg-4 col-12">
@@ -62,8 +62,8 @@
                                                 </div>
                                             @enderror
                                         </div>
-                                        <div class="mb-1">
-                                            <button type="submit" class="btn btn-green w-50 py-2 fw-bold rounded">Update Data Blog</button>
+                                        <div class="mb-1 mx-auto">
+                                            <button type="submit" class="btn btn-green exchange py-2 fw-bold rounded">Update Data Blog</button>
                                             
                                         </div>
                                     </form>

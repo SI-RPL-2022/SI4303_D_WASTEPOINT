@@ -69,9 +69,48 @@
         </div>
         @else
             <div class="text-center">
-                <a href="{{ Route('penukaran-sampah') }}" class="btn btn-green rounded px-4">Tukar sampah lagi</a>
+                <a href="#" class="btn btn-green-secondary rounded px-4 me-2" type="submit" data-bs-toggle="modal" data-bs-target="#RateModal">Beri Rating</a>
+                <a href="{{ Route('penukaran-sampah') }}" class="btn btn-green rounded px-4">Tukar lagi !!</a>
             </div>
         @endif
     @endforeach
+
+    <div class="modal fade" id="RateModal" tabindex="-1" aria-labelledby="RateModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    {{-- <h5 class="modal-title fw-bold" id="RateModalLabel">Konfirmasi Logout</h5> --}}
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                   
+                    <div class="container">
+                        <div class="row">
+                          <div class="col-lg-12">
+                            <div class="star-rating">
+                              <span class="fa fa-star-o" data-rating="1"></span>
+                              <span class="fa fa-star-o" data-rating="2"></span>
+                              <span class="fa fa-star-o" data-rating="3"></span>
+                              <span class="fa fa-star-o" data-rating="4"></span>
+                              <span class="fa fa-star-o" data-rating="5"></span>
+                              <input type="hidden" name="whatever1" class="rating-value" value="2.56">
+                            </div>
+                          </div>
+                        </div>
+
+                  
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    {{-- <form action="{{ route('logout') }}" method="POST"> --}}
+                        @csrf
+                      <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection
 

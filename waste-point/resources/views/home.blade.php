@@ -102,60 +102,29 @@
             <hr class="mb-4 mx-auto">
             <h4 class="fw-bold">Berbagai blog pilihan</h4>
         </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/sample-1.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Pentingnya Pemilahan Jenis Sampah</h6>
-                        <p class="card-text opacity-50"><small>23 Maret 2022</small></p>
-                        <a href="#" class="text-decoration-none">
-                            <span class="text-green">Selengkapnya</span>
-                            <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/sample-2.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Pentingnya Pemilahan Jenis Sampah</h6>
-                        <p class="card-text opacity-50"><small>23 Maret 2022</small></p>
-                        <a href="#" class="text-decoration-none">
-                            <span class="text-green">Selengkapnya</span>
-                            <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/sample-3.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Pentingnya Pemilahan Jenis Sampah</h6>
-                        <p class="card-text opacity-50"><small>23 Maret 2022</small></p>
-                        <a href="#" class="text-decoration-none">
-                            <span class="text-green">Selengkapnya</span>
-                            <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-4">
-                <div class="card">
-                    <img src="{{ asset('images/sample-4.png') }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h6 class="card-title fw-bold">Pentingnya Pemilahan Jenis Sampah</h6>
-                        <p class="card-text opacity-50"><small>23 Maret 2022</small></p>
-                        <a href="#" class="text-decoration-none">
-                            <span class="text-green">Selengkapnya</span>
-                            <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
-                        </a>
-                    </div>
-                  </div>
-            </div>
-        </div>
+
+        
+        <tr>
+            <div class="row justify-content-center">
+                @foreach ($show_blogs as $blog)
+                <div class="col-lg-3 col-md-6 col-12 mb-lg-0 mb-4">
+                    <div class="card h-100">
+                        <img src="/blogs/{{ $blog->image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold">{{ $blog->judul }}</h6>
+                            <p class="card-text opacity-50"><small>{{ $blog->created_at}}</small></p>
+                            <a href="#" class="text-decoration-none">
+                                <span class="text-green">Selengkapnya</span>
+                                <span class="fa fa-arrow-right ms-2 align-middle text-green" aria-hidden="true"></span>
+                            </a>
+                        </div>
+                      </div>
+                </div>
+            
+           
+            
+             @endforeach
+       
         <div class="text-center mt-5">
             <a href="" class="btn btn-green py-2 px-4 mb-lg-0 mb-5 rounded">
                 <span class="align-middle">Lihat blog lainnya</span>

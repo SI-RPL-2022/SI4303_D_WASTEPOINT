@@ -212,6 +212,10 @@ i#togglePassword {
     width: 600px;
     color: #212529;
 }
+#managed-blog.card {
+    width: 1200px;
+    color: #212529;
+}
 
 #detail,
 #detail input,
@@ -222,8 +226,9 @@ i#togglePassword {
 }
 
 #managed input,
-#managed textarea,
-#managed select {
+#managed-blog input #managed textarea,
+#managed-blog textarea,
+#managed-blog select #managed select {
     color: #212529;
 }
 
@@ -293,12 +298,23 @@ i#togglePassword {
 
     #blog-view .card,
     #managed.card,
-    .auth,
+    #managed-blog.card .auth,
     .detail-sampah,
     .detail-produk,
     .exchange,
     .admin-sampah,
     .avatar-update {
         width: 100%;
+    }
+
+    /* ====================================== */
+
+    .star-rating {
+        line-height: 32px;
+        font-size: 1.25em;
+    }
+
+    .star-rating .fa-star {
+        color: yellow;
     }
 }
