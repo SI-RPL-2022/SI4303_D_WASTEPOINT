@@ -28,6 +28,15 @@
 
         <!-- Custom styles for this page -->
         <link href="{{ asset('sb-admin/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+        <!-- Trix Editor -->
+        <link rel="stylesheet" type="text/css" href="/css/trix.css">
+        <script type="text/javascript" src="/js/trix.js"></script>
+
+        <style>
+            trix-toolbar [data-trix-button-group="file-tools"]{
+                display:none;
+            }
+        </style>
 
     </head>
 
@@ -63,5 +72,13 @@
 
         <!-- Page level custom scripts -->
         <script src="{{ asset('sb-admin/js/demo/datatables-demo.js') }}"></script>
+        <script src="{{ asset('sb-admin/js/demo/datatables-demo.js') }}"></script>
+        <script>
+            
+        document.addEventListener('trix-file-accept',function(e){
+         e.preventDefault();
+        })
+        
+        </script>
     </body>
 </html>
