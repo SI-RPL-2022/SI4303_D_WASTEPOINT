@@ -48,7 +48,7 @@
                     </ul>
                 </li>
                 <li class="nav-item line">
-                    <a class="nav-link active py-2" href="#">Blog</a>
+                    <a class="nav-link active py-2" href="{{ Route('blog') }}">Blog</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">

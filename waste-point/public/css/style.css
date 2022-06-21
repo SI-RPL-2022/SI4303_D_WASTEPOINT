@@ -217,6 +217,10 @@ i#togglePassword {
     color: #212529;
 }
 
+.blog-content {
+    font-size: 17px;
+}
+
 #detail,
 #detail input,
 #detail textarea,

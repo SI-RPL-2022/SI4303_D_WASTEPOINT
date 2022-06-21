@@ -14,6 +14,7 @@ use App\Http\Controllers\Penukaran\ProdukController as Produk;
 use App\Http\Controllers\Penukaran\KonversiPoinController as KonversiPoin;
 use App\Http\Controllers\HomeController as Home;
 use App\Http\Controllers\User\UpdateProfilController as UpdateProfil;
+use App\Http\Controllers\Blog\BlogController as Blog;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,6 +38,11 @@ Route::get('penukaran-produk', [Produk::class, 'index'])->name('penukaran-produk
 Route::get('penukaran-produk/search', [Produk::class, 'search'])->name('penukaran-produk.search');
 Route::get('penukaran-produk/{slug}', [Produk::class, 'detail']);
 Route::post('penukaran-produk/{slug}', [Produk::class, 'store']);
+
+// blog
+Route::get('blog', [Blog::class, 'index'])->name('blog');
+Route::get('blog/search', [Blog::class, 'search'])->name('blog.search');
+Route::get('blog/{slug}', [Blog::class, 'read'])->name('blog.read');
 
 // only guest for access
 Route::middleware('guest')->group(function () {
