@@ -16,7 +16,9 @@ class Waste extends Model
         'image',
         'note',
         'status',
-        'pick_up_number'
+        'pick_up_number',
+        'rating',
+        'feedback'
     ];
 
     public function users()

@@ -83,8 +83,12 @@
                             <span>
                                 @if ($waste->status != 'Selesai')
                                     <a href="https://wa.me/08111761179" class="btn-link me-3">Hubungin admin</a>
+                                    <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
+                                @elseif ($waste->status == 'Selesai' && !$waste->rating)
+                                    <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Beri ulasan</a>
+                                @else
+                                    <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
                                 @endif
-                                <a href="user/penukaran-sampah/detail/{{ $waste->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
                             </span>
                         </div>
                     </div>
@@ -134,8 +138,12 @@
                             <span>
                                 @if ($product_exchange->status != 'Selesai')
                                     <a href="https://wa.me/08111761179" class="btn-link me-3">Hubungin admin</a>
+                                    <a href="user/penukaran-produk/detail/{{ $product_exchange->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
+                                @elseif ($product_exchange->status == 'Selesai' && !$product_exchange->rating)
+                                    <a href="user/penukaran-produk/detail/{{ $product_exchange->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Beri ulasan</a>
+                                @else
+                                    <a href="user/penukaran-produk/detail/{{ $product_exchange->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
                                 @endif
-                                <a href="user/penukaran-produk/detail/{{ $product_exchange->id }}" class="btn btn-green rounded px-4 mt-sm-0 mt-2">Lihat Detail</a>
                             </span>
                         </div>
                     </div>

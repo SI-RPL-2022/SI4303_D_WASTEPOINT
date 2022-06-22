@@ -104,6 +104,10 @@ Route::middleware('auth')->group(function () {
         Route::get('riwayat-konversi-poin/detail/{id}', [UserDashboard::class, 'detail_konversi_poin']);
         Route::get('edit-profil', [UpdateProfil::class, 'index'])->name('user.edit-profil');
         Route::post('edit-profil', [UpdateProfil::class, 'update'])->name('user.edit-profil');
+
+        // rating
+        Route::post('penukaran-sampah/detail/{id}/rating', [UserDashboard::class, 'waste_rating'])->name('waste_rating');
+        Route::post('penukaran-produk/detail/{id}/rating', [UserDashboard::class, 'product_rating'])->name('product_exchange_rating');
     });
 
     // logout

@@ -90,6 +90,20 @@ class DashboardUserController extends Controller
             ]);
         } else {
             return view('not-found');
-        }
+        } 
+    }
+
+    public function waste_rating(Request $request, $id)
+    {
+        $waste = Waste::where('id', $id)->first();
+        $waste->update($request->all());
+        return back()->with('rating_success', 'Terimakasih! Penilaian Anda sangat berarti buat kami');
+    }
+
+    public function product_rating(Request $request, $id)
+    {
+        $product_exchange = ProductExchange::where('id', $id)->first();
+        $product_exchange->update($request->all());
+        return back()->with('rating_success', 'Terimakasih! Penilaian Anda sangat berarti buat kami');
     }
 }

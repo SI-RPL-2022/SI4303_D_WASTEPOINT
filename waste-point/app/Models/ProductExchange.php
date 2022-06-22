@@ -17,7 +17,9 @@ class ProductExchange extends Model
         'total_points',
         'note',
         'status',
-        'invoice_number'
+        'invoice_number',
+        'rating',
+        'feedback'
     ];
 
     public function users()
