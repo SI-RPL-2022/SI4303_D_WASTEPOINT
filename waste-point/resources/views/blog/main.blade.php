@@ -14,7 +14,7 @@
                     <form action="{{ route('blog.search') }}" method="get" class="d-flex">
                         <div class="input-group mb-2 shadow-sm rounded">
                             <input type="search" class="form-control" placeholder="Cari kata kunci.." name="keyword" value="{{ request('keyword') }}">
-                            <button class="btn btn-green text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button class="btn btn-green text-white" type="submit">Cari</button>
                         </div>
                     </form>
                 </div>
