@@ -55,12 +55,12 @@
     <section id="exchange-view" class="py-4">
         <nav>
             <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-syarat-tab" data-bs-toggle="tab" data-bs-target="#nav-syarat" type="button" role="tab" aria-controls="nav-syarat" aria-selected="true">Informasi</button>
-                <button class="nav-link" id="nav-penukaran-tab" data-bs-toggle="tab" data-bs-target="#nav-penukaran" type="button" role="tab" aria-controls="nav-penukaran" aria-selected="false">Penukaran</button>
+                <button class="nav-link" id="nav-syarat-tab" data-bs-toggle="tab" data-bs-target="#nav-syarat" type="button" role="tab" aria-controls="nav-syarat" aria-selected="true">Informasi</button>
+                <button class="nav-link active" id="nav-penukaran-tab" data-bs-toggle="tab" data-bs-target="#nav-penukaran" type="button" role="tab" aria-controls="nav-penukaran" aria-selected="false">Penukaran</button>
             </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-syarat" role="tabpanel" aria-labelledby="nav-syarat-tab">
+            <div class="tab-pane fade" id="nav-syarat" role="tabpanel" aria-labelledby="nav-syarat-tab">
                 <h4 class="mt-4 py-2 fw-bold">Syarat & Ketentuan</h4>
                 <p>Persyaratan yang perlu anda penuhi untuk penukaran WastePoin dengan Produk Pemilahan Sampah.</p>
                 <ol>
@@ -81,7 +81,7 @@
                 <h4 class="mt-5 mb-4 py-2 fw-bold">Mitra Spesial</h4>
                 <img src="https://waste4change.com/2.8.assets/img/logo/logo-W4C_179_web.png" alt="waste4change" class="partner">
             </div>
-            <div class="tab-pane fade" id="nav-penukaran" role="tabpanel" aria-labelledby="nav-penukaran-tab">
+            <div class="tab-pane fade show active" id="nav-penukaran" role="tabpanel" aria-labelledby="nav-penukaran-tab">
                 @guest
                     <div id="input-data" class="pt-5 mb-2 text-center">
                         <a href="{{ route('login') }}" class="btn btn-green w-20 py-2 px-4 fw-bold rounded mt-5">Silahkan login untuk penukaran produk</a>

@@ -91,7 +91,7 @@
                     <form action="{{ Route('penukaran-produk.search') }}" method="get" class="d-flex">
                         <div class="input-group mb-2 shadow-sm rounded">
                             <input type="search" class="form-control" placeholder="Cari nama produk.." name="keyword" value="{{ request('keyword') }}">
-                            <button class="btn btn-green text-white" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            <button type="submit" class="btn btn-green text-white fw-bold">Cari</button>
                         </div>
                     </form>
                     @if ($products->isEmpty())
